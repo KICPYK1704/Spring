@@ -8,5 +8,6 @@
 </head>
 <body>
 	index.jsp
+	<a href="orderlist">주문내역 보기~</a>
 </body>
 </html>
