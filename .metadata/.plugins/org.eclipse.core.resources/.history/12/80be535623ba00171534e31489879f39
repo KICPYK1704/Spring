@@ -1,8 +1,0 @@
-package com.team4.model.admin;
-
-import org.springframework.stereotype.Repository;
-
-@Repository
-public class BoardDao implements AdminDaoInter {
-	
-}
