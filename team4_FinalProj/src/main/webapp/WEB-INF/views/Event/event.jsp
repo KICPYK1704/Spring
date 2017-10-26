@@ -1,0 +1,56 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<title>Event List</title>
+</head>
+<body>
+	<h2 class="center-align">이벤트</h2>
+	<div class="container">
+		<table class="bordered centered">
+			<thead class="blue-grey darken-4 white-text">
+				<tr>
+					<th>No</th><th>디자이너 명</th><th>이벤트 명</th><th>등록일</th><th>조회</th>
+				</tr>
+			</thead>
+			<!-- for 돌려서 출력 -->
+			<!-- <c:forEach var="dto" items="${list}"> -->
+			<!-- </c:forEach>-->
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>홍길동</td>
+					<td>할로윈 이벤트!</td>
+					<td>2017-10-24</td>
+					<td>5</td>
+				</tr>
+			</tbody>
+			<tr style="border-bottom: 0px;">
+				<td></td>
+				<td colspan="3">
+					<ul class="pagination">
+					   <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+					   <li class="active"><a href="#!">1</a></li>
+					   <li class="waves-effect"><a href="#!">2</a></li>
+					   <li class="waves-effect"><a href="#!">3</a></li>
+					   <li class="waves-effect"><a href="#!">4</a></li>
+					   <li class="waves-effect"><a href="#!">5</a></li>
+					   <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+					</ul>
+				</td>
+				<td>
+					<i class="material-icons">add_box</i>
+				</td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>
