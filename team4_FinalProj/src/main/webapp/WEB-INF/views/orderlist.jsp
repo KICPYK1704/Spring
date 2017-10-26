@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -24,11 +24,11 @@
 			<br>
 			<br>
 			<br>
-			<h5 class="valign-wrapper">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;주문내역</h5>
+			<h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;주문 조회</h5>
 			<br> <br> <br>
 			<ul class="tabs">
 				<li class="tab col s3"><a class="active" href="#disp">주문 내역 조회(0)</a></li>
-				<li class="tab col s3"><a href="#disp2">취소/반품/교환 내역(0)</a></li>
+				<li class="tab col s3"><a href="#disp2">취소/반품/교환 조회(0)</a></li>
 			</ul>
 			<!-- 주문 내역 조회 눌렀을 때 밑에 나올 내용 -->
 			<div id="disp">
@@ -102,9 +102,9 @@
 								<button class="waves-effect waves-light btn grey" style="font-size: x-small;">6개월</button>
 								
 								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								<input type="text" readonly="readonly" name="startdate" style="width: 100px" value="2017-10-22">&nbsp;&nbsp;<button><i class="material-icons">date_range</i></button>
+								<input type="text" readonly="readonly" name="startdate" style="width: 100px; margin-top: 20px" value="2017-10-22">&nbsp;&nbsp;<button><i class="material-icons">date_range</i></button>
 								&nbsp;&nbsp;&nbsp;~&nbsp;&nbsp;&nbsp;
-								<input type="text" readonly="readonly" name="enddate" style="width: 100px" value="2017-10-23">&nbsp;&nbsp;<button><i class="material-icons">date_range</i></button>
+								<input type="text" readonly="readonly" name="enddate" style="width: 100px; margin-top: 20px" value="2017-10-23">&nbsp;&nbsp;<button><i class="material-icons">date_range</i></button>
 								&nbsp;&nbsp;&nbsp;&nbsp;<button id="btnOk" class="waves-effect waves-light btn grey"><i class="material-icons">search</i></button>
 							</div>
 						</td>
@@ -146,6 +146,5 @@
 			<!-- include bottom-->
 		</div>
 	</div>
-	
 </body>
 </html>
