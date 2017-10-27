@@ -1,6 +1,6 @@
- package com.team4.model.member;
+ package com.team4.finalproj.member;
 
-public class MemberDto {
+public class MemberBean {
 	private String mem_id, mem_pwd, mem_name, mem_tel, mem_email, mem_address, mem_fandesignerno, mem_regdate;
 
 	public String getMem_id() {

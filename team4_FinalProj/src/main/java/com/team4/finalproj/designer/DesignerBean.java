@@ -1,6 +1,6 @@
-package com.team4.model.designer;
+package com.team4.finalproj.designer;
 
-public class DesignerDto {
+public class DesignerBean {
 	private String des_id, des_pwd, des_name, des_tel, des_email, des_account,
 	des_shoptitle, des_shopintro, des_style, des_date;
 

@@ -7,7 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-	index.jsp
-	JINHO VERSION
+	<a href="memberregister">회원가입</a><br>
+	<a href="designerregister">디자이너회원가입</a><br><br><br>
+	<a href="adminlogin">관리자로그인</a><br>
+	<a href="memberlogin">멤버로그인</a><br>
+	<a href="designerlogin">디자이너로그인</a><br>
 </body>
 </html>
