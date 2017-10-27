@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	index.jsp
+	<a href="ProductList">상품 리스트</a><br>
+	<a href="ProductList?classf2='상의">상의</a><br>
+	<a href="ProductList?classf2='하의">하의</a><br>
 </body>
 </html>
