@@ -1,5 +1,7 @@
 package com.team4.model.board;
 
-public interface BoardDaoInter {
+import java.util.List;
 
+public interface BoardDaoInter {
+	public List<BoardDto> getDataAll();
 }

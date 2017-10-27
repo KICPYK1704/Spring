@@ -1,31 +1,18 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
 <head>
 <style type="text/css">
 
-nav{
+#top_nav {
+	z-index: 800;
 	background: -webkit-linear-gradient(top right, #ffffff, #ecebeb);
-}
-
-nav a{
-	color: #010101;
-}
-
-nav ul a{
-	color: #010101;
-}
-
-nav .brand-logo {
-	color: #010101;
 }
 
 nav a.button-collapse {
     display: block; 
 }
 
-select {
+.search_sel {
 	height: 30px;
 	font-size: 16px;
 	padding: 0px;
@@ -131,12 +118,15 @@ $(document).ready(function(){
 		}
 	});
 	
-	 $('.collapsible').collapsible();
-	 $('.target').pushpin({
-	      top: 0,
-	      bottom: 1000,
-	      offset: 0
+	$('.collapsible').collapsible();
+	$('.pushpin-demo-nav').each(function() {
+	    var $this = $(this);
+	    var $target = $('#' + $(this).attr('data-target'));
+	    $this.pushpin({
+	      top: $target.offset().top - $this.height(),
+	      bottom: $target.offset().top + $target.outerHeight() - $this.height()
 	    });
+	});
 });
 
 	
@@ -206,18 +196,15 @@ function detailHide(elementid){
     <li><a href="#!">소개</a></li>
     <li>
     	<br>
-    	<br>
     </li>
     <li><a href="#!">쇼핑 스트리트</a></li>
     <li><a href="#!">제품 리스트</a></li>
     <li>
     	<br>
-    	<br>
     </li>
     <li><a href="#!">이벤트</a></li>
     <li><a href="#!">FAQ</a></li>
     <li>
-    	<br>
     	<br>
     	<br>
     </li>
@@ -232,7 +219,7 @@ function detailHide(elementid){
 
 	<div id="searchTab" class="searchBox"> 
 		<div>
-			<select class="left" name="stype" style="width: 80px;">
+			<select class="left search_sel" name="stype" style="width: 80px;">
 				<option value="상품" selected="selected">상품</option>
 				<option value="디자이너" >디자이너</option>
 			</select>
@@ -283,19 +270,19 @@ function detailHide(elementid){
 	</div>
    
 <!-- 타이틀 바 -->
-<nav class="pushpin-demo-nav pinned" data-target="top_block" style="z-index: 999;">
-    <div class="nav-wrapper">
-      <a href="#" class="brand-logo center">Logo</a>
-      <ul id="nav1" class="left hide-on-med-and-down">
-        <li><a class="button-collapse" href="#!" data-activates="slide-out"><i class="material-icons" style="font-size: 2rem">menu</i></a></li>
-        <li><a class="dropdown-button" href="#!" data-activates="dropdown1">쇼핑 스트리트<i class="material-icons right">arrow_drop_down</i></a></li>
-        <li><a class="dropdown-button" href="#!" data-activates="dropdown2">제품 리스트<i class="material-icons right">arrow_drop_down</i></a></li>
-      </ul>
-      <ul id="nav2" class="right hide-on-med-and-down">
-        <li><a id="btnOne" href="#!" data-activates="searchTab"><i class="material-icons" style="font-size: 2.2rem">search</i></a></li>
-      </ul>
-    </div>
-  </nav>
+<nav id="top_nav" class="pushpin-demo-nav" data-target="top_block">
+  <div class="nav-wrapper">
+    <a href="#" class="brand-logo center black-text">Logo</a>
+    <ul id="nav1" class="left hide-on-med-and-down">
+      <li><a class="button-collapse black-text" href="#!" data-activates="slide-out"><i class="material-icons" style="font-size: 2rem">menu</i></a></li>
+      <li><a class="dropdown-button black-text" href="#!" data-activates="dropdown1">쇼핑 스트리트<i class="material-icons right">arrow_drop_down</i></a></li>
+      <li><a class="dropdown-button black-text" href="#!" data-activates="dropdown2">제품 리스트<i class="material-icons right">arrow_drop_down</i></a></li>
+    </ul>
+    <ul id="nav2" class="right hide-on-med-and-down">
+      <li><a id="btnOne" href="#!" data-activates="searchTab"><i class="material-icons black-text" style="font-size: 2.2rem">search</i></a></li>
+    </ul>
+  </div>
+</nav>
   
 </body>
 </html>

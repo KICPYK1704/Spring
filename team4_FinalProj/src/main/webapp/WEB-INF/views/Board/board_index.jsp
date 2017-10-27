@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +14,7 @@
 </head>
 <body>
 	<%@include file="../../../top.jsp"%>
-	<div id="top_block">
+	<div id="top_block" >
 	<h2 class="center-align">방명록</h2>
 	<div class="container">
 		<!-- 등록 ------------------------------------------------------------------------------------ -->
@@ -46,6 +47,7 @@
 		<!-- 등록 끝 ------------------------------------------------------------------------------------ -->
 		
 		<!-- 이전 등록글 보여주기 ------------------------------------------------------------------------------------ -->
+		<c:forEach var="dto" items="${board_list}">
 		<div class="row">
 			<div class="col s10 offset-s1 z-depth-4">
 				<div class="col s3">
@@ -116,6 +118,7 @@
 				</div>
 			</div>
 		</div>
+		</c:forEach>
 		<!-- 보여주기 끝 ------------------------------------------------------------------------------------ -->
 	</div>
 	

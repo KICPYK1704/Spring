@@ -8,5 +8,6 @@
 </head>
 <body>
 	index.jsp
+	<a href="board_list">방명록 메인</a>
 </body>
 </html>
