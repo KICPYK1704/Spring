@@ -8,5 +8,6 @@
 </head>
 <body>
 	index.jsp
+	JINHO VERSION
 </body>
 </html>
