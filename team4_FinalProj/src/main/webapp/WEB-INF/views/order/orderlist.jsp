@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,9 +21,6 @@
 	<div class="row">
 		<div class="col s8 offset-s2">
 			<!-- include top-->
-			aslkdfjalskdfj
-			<img src="resources/img/erd.png">
-			alsdkfjlaskdf
 			<div class="divider"></div>
 			<br>
 			<br>
@@ -30,8 +28,8 @@
 			<h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;주문 조회</h5>
 			<br> <br> <br>
 			<ul class="tabs">
-				<li class="tab col s3"><a class="active" href="#disp">주문 내역 조회(0)</a></li>
-				<li class="tab col s3"><a href="#disp2">취소/반품/교환 조회(0)</a></li>
+				<li class="tab col s3"><a class="active" href="#disp">주문 내역 조회(${list.size()})</a></li>
+				<li class="tab col s3"><a href="#disp2">반품/교환 조회(${otherlist.size() })</a></li>
 			</ul>
 			<!-- 주문 내역 조회 눌렀을 때 밑에 나올 내용 -->
 			<div id="disp">
@@ -73,7 +71,20 @@
 						<td height="150" colspan="7" width="100%">
 							<div class=" valign-wrapper" style="text-align: center">
 								<table width="100%" height="100%">
-									<tr><td style="text-align: center"><b>주문 내역이 없습니다.</b></td></tr>
+									<c:if test="${list.size() == 0}">
+	 									<tr><td style="text-align: center"><b>주문 내역이 없습니다.</b></td></tr>									
+									</c:if>
+									<c:forEach var="o" items="${list}">
+										<tr>
+											<td>${o.order_regdate}<br>${o.order_no }</td>
+											<td><img src="resources/img/product1.gif"></td>
+											<td>상품 이름 <br>상품 옵션(sql join)</td>
+											<td>${o.order_quantity }</td>
+											<td>${o.order_pay }</td>
+											<td>${o.order_state }</td>
+											<td><a href="ordercancel">취소</a>&nbsp;<a href="orderchange">교환</a>&nbsp;<a href="orderreturn">반품</a></td>
+										</tr>
+									</c:forEach>									
 								</table>
 								
 							</div>
@@ -122,7 +133,7 @@
 					</ul>
 				</blockquote>
 				<br><br>
-				&nbsp;&nbsp;&nbsp;&nbsp;<p><b>취소/반품/교환 내역 정보</b></p>
+				&nbsp;&nbsp;&nbsp;&nbsp;<p><b>반품/교환 내역 정보</b></p>
 				<div class="divider"></div>
 				<table class="bordered">
 					<tr><th style="text-align: center">주문일자<br>[주문번호]</th><th style="text-align: center">상품정보</th><th style="text-align: center">수량</th><th style="text-align: center">상품구매금액</th><th style="text-align: center">처리상태</th></tr>
@@ -130,7 +141,18 @@
 						<td height="150" colspan="7" width="100%">
 							<div class=" valign-wrapper" style="text-align: center">
 								<table width="100%" height="100%">
-									<tr><td style="text-align: center"><b>취소/반품/교환 내역이 없습니다.</b></td></tr>
+									<c:if test="${otherlist.size() == 0}">
+	 									<tr><td style="text-align: center"><b>반품/교환 내역이 없습니다.</b></td></tr>									
+									</c:if>
+									<c:forEach var="o" items="${otherlist}">
+										<tr>
+											<td>${o.order_regdate}<br>${o.order_no }</td>
+											<td>상품 이름 <br>상품 옵션(sql join)</td>
+											<td>${o.order_quantity }</td>
+											<td>${o.order_pay }</td>
+											<td>${o.order_state }</td>
+										</tr>
+									</c:forEach>
 								</table>
 								
 							</div>

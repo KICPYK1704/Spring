@@ -1,5 +1,8 @@
+<%@page import="com.team4.model.order.PreOrderDto"%>
+<%@page import="com.team4.model.order.OrderDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,9 +13,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <script type="text/javascript">
- $(document).ready(function() {
-    $('select').material_select();
-  });
+$(document).ready(function() {
+	$('select').material_select();
+});
 </script>
 </head>
 <body>
@@ -28,13 +31,24 @@
 			<table class="bordered">
 				<tr><th>상품 이미지</th><th>상품 정보</th><th>판매가</th><th>수량</th><th>합계</th></tr>
 				<!-- 반복문 -->
-				<tr height="150px">
+				<c:forEach var="p" items="${plist}">
+					<tr>
+						<td><img src="resources/img/${p.pic_url}"></td>
+						<td><a href="">${p.prod_name}</a><br>${p.stock_color} / ${p.stock_size}</td>
+						<td>${p.prod_price}</td>
+						<td><%=request.getAttribute("quantity") %></td>
+						<!-- request.getParameter("quantity") : 상품 상세보기 창에서 수량 넘겨줌(name = quantity 으로) -->
+						<td>${p.prod_price * quantity}</td>
+						<!-- int 처리하기 -->
+					</tr>
+				</c:forEach>
+				<!-- <tr height="150px">
 					<td width="200px"><i class="large material-icons">camera_alt</i></td>
 					<td><a href="#!">[CS1930]취향저격 1+1아이템ver.베이직 카라 셔츠+블랑 니트 베스트 ★300개 한정수량★</a><br>[옵션: 02블랙/Free 사이즈/05화이트/L 사이즈]</td>
 					<td>25,800원</td>
 					<td>1</td>
 					<td>25,800원</td>
-				</tr>
+				</tr> -->
 				<tr height="70px" style="">
 					<td colspan="5" style="text-align: right;">상품구매금액 25,800 + 배송비 2,500 = 합계 : 28,300원&nbsp;&nbsp;&nbsp;&nbsp;</td>
 				</tr>
@@ -49,19 +63,25 @@
 			<table class="bordered">
 				<tr>
 					<td style="width: 250px; text-align: center">주문하시는 분</td>
-					<td><input type="text" name="order_name" value="이상명" readonly="readonly" style="width: 300px"></td>
+					<td><input type="text" name="order_name" value="${meminfo.mem_name}" readonly="readonly" style="width: 300px"></td>
 				</tr>
 				<tr>
 					<td style="height: 200px"><div style="width: 100%; text-align: center">주소</div></td>
 					<td>
-						<input type="text" name="postnumber"value="110-801" readonly="readonly" style="width: 200px">&nbsp;&nbsp;<button class="waves-effect waves-light btn grey">검색</button><br>
+						<input type="text" name="address" value="서울특별시 종로구 계동" readonly="readonly" style="width: 500px"><label for="addr1">기본 주소</label>
+						
+						<!-- <input type="text" name="postnumber"value="110-801" readonly="readonly" style="width: 200px">&nbsp;&nbsp;<button class="waves-effect waves-light btn grey">검색</button><br>
 						<input type="text" name="address1" value="서울특별시 종로구 계동" readonly="readonly" style="width: 500px">&nbsp;&nbsp;기본 주소<br>
-						<input type="text" name="address2" value="136번지 번영주택 201호" readonly="readonly" style="width: 500px">&nbsp;&nbsp;상세 주소						
+						<input type="text" name="address2" value="136번지 번영주택 201호" readonly="readonly" style="width: 500px">&nbsp;&nbsp;상세 주소 -->						
 					</td>
 				</tr>
 				<tr>
 					<td style="text-align: center">전화번호</td>
 					<td>
+					<% 
+					PreOrderDto dto = (PreOrderDto)request.getAttribute("meminfo");					
+					String str = dto.getorder_
+					%>
 						<div class="row valign-wrapper" style="height: 100%">
 							<input type="text" name="tel1" value="010" readonly="readonly" style="width: 70px; text-align: center; margin-top: 20px">
 							&nbsp;&nbsp;<b>-</b>&nbsp;&nbsp;
@@ -94,7 +114,7 @@
 				</tr>
 				<tr>
 					<td style="width: 250px; text-align: center">받는 분</td>
-					<td><input type="text" name="order_name" value="이상명" style="width: 300px"></td>
+					<td><input type="text" name="order_name" value="${meminfo.mem_id }" style="width: 300px"></td>
 				</tr>
 				<tr>
 					<td style="height: 200px"><div style="width: 100%; text-align: center">주소</div></td>
