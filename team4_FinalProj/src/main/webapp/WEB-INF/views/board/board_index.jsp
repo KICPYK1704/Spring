@@ -9,7 +9,17 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.reply-header').on("click", function(){
+			var index = $('.reply-header').index(this);
+			if($('.reply-body').eq(index).css("display") ==  'none'){
+				$('.reply-body').eq(index).load("board_reply?board_no=" + $('.board_no').eq(index).text());
+				//alert($('.board_no').eq(index).text());
+			}
+		})
+	});
+</script>
 <title>방명록</title>
 </head>
 <body>
@@ -48,6 +58,7 @@
 		
 		<!-- 이전 등록글 보여주기 ------------------------------------------------------------------------------------ -->
 		<c:forEach var="dto" items="${board_list}">
+		<span class="board_no" style="display:none;">${dto.board_no}</span>
 		<div class="row">
 			<div class="col s10 offset-s1 z-depth-4">
 				<div class="col s3">
@@ -55,13 +66,13 @@
 						<img src="./resources/ex.jpg" style="width:50%">
 					</div>
 					<div class ="row center-align">
-						<span class="flow-text">member_id</span>
+						<span class="flow-text">${dto.board_writer}</span>
 					</div>
 				</div>
 				<div class="col s9">
 					<div class="row">
 						<div class="input-field col s12">
-				        	<textarea id="textarea1" class="materialize-textarea" readonly></textarea>
+				        	<textarea id="textarea1" class="materialize-textarea" readonly>${dto.board_content}</textarea>
 				        </div>
 				        <form action="#">
 							<div class="input-field col s11">
@@ -82,36 +93,11 @@
 				<div class="col s12">
 					<ul class="collapsible" data-collapsible="accordion">
 					    <li>
-						    <div class="collapsible-header">
+						    <div class="collapsible-header reply-header">
 						    	<i class="material-icons">question_answer</i>
-						    	<span>댓글 보기</span><span>{댓글 총 개수(list.size)}</span>
+						    	<span>댓글(${dto.reply_count})</span>
 						    </div>
-						    <div class="collapsible-body">
-						    	
-						    	<div class="row" style="border-bottom: 1px solid black">
-						    		<div class="col s2">
-						    			writer_id
-						    		</div>
-						    		<div class="col s9">
-						    			comment_content
-						    		</div>
-						    		<div class="col s1">
-								    	<i class="material-icons">delete</i>
-						    		</div>
-						    	</div>
-						    	
-						    	<div class="row" style="border-bottom: 1px solid black">
-						    		<div class="col s2">
-						    			writer_id
-						    		</div>
-						    		<div class="col s9">
-						    			comment_content
-						    		</div>
-						    		<div class="col s1">
-								    	<i class="material-icons">delete</i>
-						    		</div>
-						    	</div>
-						    	
+						    <div class="collapsible-body reply-body">
 						    </div>
 					    </li>
 					</ul>

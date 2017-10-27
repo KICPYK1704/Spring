@@ -11,7 +11,12 @@ public class BoardDao implements BoardDaoInter {
 	private BoardAnnoInter annoInter;
 	
 	@Override
-	public List<BoardDto> getDataAll() {
-		return annoInter.getDataAll();
+	public List<BoardDto> getDataAll(String des_id) {
+		return annoInter.getDataAll(des_id);
+	}
+	
+	@Override
+	public List<BoardReplyDto> getReplyAll(String board_no) {
+		return annoInter.getReplyAll(board_no);
 	}
 }

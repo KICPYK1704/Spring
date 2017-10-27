@@ -8,6 +8,6 @@
 </head>
 <body>
 	index.jsp
-	<a href="board_list">방명록 메인</a>
+	<a href="board_list?des_id=jinho">방명록 메인</a>
 </body>
 </html>

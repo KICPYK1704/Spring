@@ -1,10 +1,18 @@
 package com.team4.model.board;
 
 public class BoardDto {
-	private String board_no, board_designerid, board_writer, board_content, board_regdate;
+	private String board_no, board_designerid, board_writer, board_content, board_regdate, reply_count;
 
 	public String getBoard_no() {
 		return board_no;
+	}
+
+	public String getReply_count() {
+		return reply_count;
+	}
+
+	public void setReply_count(String reply_count) {
+		this.reply_count = reply_count;
 	}
 
 	public void setBoard_no(String board_no) {
