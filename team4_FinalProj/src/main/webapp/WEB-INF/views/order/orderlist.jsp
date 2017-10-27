@@ -20,6 +20,9 @@
 	<div class="row">
 		<div class="col s8 offset-s2">
 			<!-- include top-->
+			aslkdfjalskdfj
+			<img src="resources/img/erd.png">
+			alsdkfjlaskdf
 			<div class="divider"></div>
 			<br>
 			<br>

@@ -3,10 +3,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-	index.jsp
+<br>
+	<a href="orderlist">주문내역 보기~</a><br>
+	<a href="orderprocess">구매하기</a>
+	<a href="ordercomplete">구매완료</a>
 </body>
 </html>

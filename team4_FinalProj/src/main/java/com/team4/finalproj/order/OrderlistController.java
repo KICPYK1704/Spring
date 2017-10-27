@@ -1,4 +1,4 @@
-package com.team4.finalproj;
+package com.team4.finalproj.order;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class OrderlistController {
 	@RequestMapping("orderlist")
 	public String order(){
-		return "orderlist";
+		return "order/orderlist";
 	}
 }
