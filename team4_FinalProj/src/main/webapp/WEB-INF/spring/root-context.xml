@@ -23,7 +23,39 @@
 	</bean>
 	<!-- mybatis annotation 설정 -->
 	<bean class="org.mybatis.spring.mapper.MapperFactoryBean">
-		<property name="mapperInterface" value="com.team4.model.AnnoInter" />
+		<property name="mapperInterface" value="com.team4.model.admin.AdminAnnoInter" />
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
-	</bean>	
+	</bean>
+	<bean class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.team4.model.board.BoardAnnoInter" />
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
+	<bean class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.team4.model.cart.CartAnnoInter" />
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
+	<bean class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.team4.model.designer.DesignerAnnoInter" />
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
+	<bean class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.team4.model.event.EventAnnoInter" />
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
+	<bean class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.team4.model.FAQ.FAQAnnoInter" />
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
+	<bean class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.team4.model.member.MemberAnnoInter" />
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
+	<bean class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.team4.model.order.OrderAnnoInter" />
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
+	<bean class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.team4.model.product.ProductAnnoInter" />
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
 </beans>
