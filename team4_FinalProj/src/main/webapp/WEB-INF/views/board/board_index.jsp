@@ -17,7 +17,13 @@
 				$('.reply-body').eq(index).load("board_reply?board_no=" + $('.board_no').eq(index).text());
 				//alert($('.board_no').eq(index).text());
 			}
-		})
+	});
+		$('#board_insertsubmit').click(function(){
+			$('#board_insertform').submit();
+		});
+		if('${param.delete_ok}' == 'ok'){
+			alert('삭제가 완료되었습니다');
+		}
 	});
 </script>
 <title>방명록</title>
@@ -38,19 +44,20 @@
 						<span class="flow-text">member_id</span>
 					</div>
 				</div>
-				<form class="col s9">
+				<form id="board_insertform" class="col s9" action="board_insert" method="post">
 					<div class="row">
 						<div class="input-field col s12">
-				        	<textarea id="textarea1" class="materialize-textarea" placeholder="방명록 작성"></textarea>
+				        	<textarea id="textarea1" class="materialize-textarea" name="board_content" placeholder="방명록 작성"></textarea>
 				        </div>
-						<div class="input-field col s1 offset-s10 right-align">
-							<div class="waves-effect waves-light btn">
+						<div class="input-field col s2 offset-s10 right-align">
+							<div class="waves-effect waves-light btn" id="board_insertsubmit">
 								<span>등록</span>
-				        		<input type="submit">
 				        	</div>
 				        </div>
 					</div>
-					<!-- hidden tag로 id 넘길건지 결정필요 -->
+					<!-- hidden tag로 넘기는 값들 사실 받아오는 값임 -->
+					<input type="hidden" name="board_writer" value="youngpil">
+					<input type="hidden" name="board_designerid" value="jinho">
 				</form>
 			</div>
 		</div>
@@ -71,10 +78,15 @@
 				</div>
 				<div class="col s9">
 					<div class="row">
-						<div class="input-field col s12">
+						<div class="input-field col s11">
 				        	<textarea id="textarea1" class="materialize-textarea" readonly>${dto.board_content}</textarea>
 				        </div>
-				        <form action="#">
+						<div class="col s1 valign-wrapper">
+							<a href="board_delete?board_no=${dto.board_no}&des_id=${dto.board_designerid}">
+								<i class="material-icons">delete</i>
+							</a>
+						</div>
+				        <form action="insert_reply" method="post">
 							<div class="input-field col s11">
 								<i class="material-icons prefix">comment</i>
 								<input id="new_comment" type="text" class="validate" placeholder="댓글을 입력하세요">

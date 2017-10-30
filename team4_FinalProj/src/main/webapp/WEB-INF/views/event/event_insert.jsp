@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="sform" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,7 +32,7 @@
 					<img src="./resources/ex.jpg" style="width:50%">
 				</div>
 				<div class ="row center-align">
-					<span class="flow-text">writer_id</span>
+					<span class="flow-text">${param.writer}</span>
 				</div>
 			</div>
 			<div class="col s9">
@@ -43,10 +44,10 @@
 					<!-- spring form tag 사용! 파일 업로드를 위해 -->
 					<sform:form enctype="multipart/form-data" modelAttribute="uploadFile"> <!-- enctype="multipart/form-data" 대용량 파일 업로드할 때 써주는 타입 -->
 						<div class="input-field col s10 left-align" style="margin:0px">
-							<input id="title" type="text" class="validate" placeholder="제목을 입력하세요" style="margin:0px">
+							<input id="event_title" type="text" class="validate" placeholder="제목을 입력하세요" style="margin:0px">
 						</div>
 						<div class="input-field col s12">
-					      	<textarea id="textarea1" class="materialize-textarea" placeholder="방명록 작성"></textarea>
+					      	<textarea id="event_content" class="materialize-textarea" placeholder="방명록 작성"></textarea>
 					    </div>
 						<div class="input-field col s4 center">
 							<img src="./resources/event.jpg" style="width:80%">

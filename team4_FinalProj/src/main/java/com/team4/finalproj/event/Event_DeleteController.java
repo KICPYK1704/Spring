@@ -1,4 +1,4 @@
-package com.team4.finalproj.board;
+package com.team4.finalproj.event;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,11 +10,11 @@ import org.springframework.web.servlet.ModelAndView;
 import com.team4.model.board.BoardDaoInter;
 
 @Controller
-public class Board_DeleteController {
+public class Event_DeleteController {
 	@Autowired
 	private BoardDaoInter daoInter;
 	
-	@RequestMapping(value="board_delete", method=RequestMethod.GET)
+	@RequestMapping(value="event_delete", method=RequestMethod.GET)
 	public String board_delete(@RequestParam("board_no")String board_no, @RequestParam("des_id")String des_id){
 		boolean b = daoInter.deleteBoard(board_no);
 		if(b){
@@ -23,5 +23,4 @@ public class Board_DeleteController {
 			return "redirect:/error.jsp";
 		}
 	}
-	
 }

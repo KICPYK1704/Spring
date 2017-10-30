@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +9,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
+<script type="text/javascript">
+	
+</script>
 <title>Event Detail</title>
 </head>
 <body>
@@ -30,19 +33,20 @@
 					<img src="./resources/ex.jpg" style="width:50%">
 				</div>
 				<div class ="row center-align">
-					<span class="flow-text">writer_id</span>
+					<span class="flow-text">${detail.event_writer}</span>
 				</div>
 			</div>
 			<div class="col s9">
 				<div class="row">
+					<span class="event_no" style="display:none;">${dto.event_no}</span>
 					<div class="input-field col s12 center-align">
-						제목 : 할로윈 이벤트!
+						제목 : ${detail.event_title}
 					</div>
 					<div class="input-field col s12 center">
-						<img src="./resources/event.jpg" style="width:80%">
+						<img src="./resources/img/${detail.img_url}" style="width:80%">
 					</div>
 					<div class="input-field col s12 center-align">
-						글 내용 출력
+						${detail.event_content}
 			        </div>
 				</div>
 				<!-- hidden tag로 id 넘길건지 결정필요 -->
@@ -66,36 +70,24 @@
 		<div class="row">
 			<ul class="collapsible" data-collapsible="accordion" style="margin-top: 0px">
 			    <li>
-				    <div class="collapsible-header">
+				    <div class="collapsible-header reply-header">
 				    	<i class="material-icons">question_answer</i>
-				    	<span>댓글 보기</span><span>{댓글 총 개수(list.size)}</span>
+				    	<span>댓글(${detail.reply_count})</span>
 				    </div>
-				    <div class="collapsible-body">
-				    	
-				    	<div class="row" style="border-bottom: 1px solid black">
-				    		<div class="col s2">
-				    			writer_id
-				    		</div>
-				    		<div class="col s9">
-				    			comment_content
-				    		</div>
-				    		<div class="col s1">
-						    	<i class="material-icons">delete</i>
-				    		</div>
-				    	</div>
-				    	
-				    	<div class="row" style="border-bottom: 1px solid black">
-				    		<div class="col s2">
-				    			writer_id
-				    		</div>
-				    		<div class="col s9">
-				    			comment_content
-				    		</div>
-				    		<div class="col s1">
-						    	<i class="material-icons">delete</i>
-				    		</div>
-				    	</div>
-				    	
+				    <div class="collapsible-body reply-body">
+						<c:forEach var="reply" items="${reply_list}">
+					    	<div class="row" style="border-bottom: 1px solid black">
+					    		<div class="col s2">
+					    			${reply.reply_writer}
+					    		</div>
+					    		<div class="col s9">
+					    			${reply.reply_content}
+					    		</div>
+					    		<div class="col s1">
+							    	<i class="material-icons">delete</i>
+					    		</div>
+					    	</div>
+						</c:forEach>
 				    </div>
 			    </li>
 			</ul>

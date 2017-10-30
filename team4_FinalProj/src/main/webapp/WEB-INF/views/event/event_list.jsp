@@ -21,17 +21,20 @@
 					<th>No</th><th>디자이너 명</th><th>이벤트 명</th><th>등록일</th><th>조회</th>
 				</tr>
 			</thead>
-			<!-- for 돌려서 출력 -->
-			<!-- <c:forEach var="dto" items="${list}"> -->
-			<!-- </c:forEach>-->
 			<tbody>
+			<c:forEach var="dto" items="${event_list}">
 				<tr>
-					<td>1</td>
-					<td>홍길동</td>
-					<td>할로윈 이벤트!</td>
-					<td>2017-10-24</td>
-					<td>5</td>
+					<td>${dto.event_no}</td>
+					<td>${dto.event_writer}</td>
+					<td>
+						<a href="event_detail?event_no=${dto.event_no}">
+							${dto.event_title}
+						</a>
+					</td>
+					<td>${dto.event_regdate}</td>
+					<td>${dto.event_hit}</td>
 				</tr>
+			</c:forEach>
 			</tbody>
 			<tr style="border-bottom: 0px;">
 				<td></td>
@@ -47,7 +50,9 @@
 					</ul>
 				</td>
 				<td>
-					<i class="material-icons">add_box</i>
+					<a herf="event_insert?writer=${sessionScope.login_des}">
+						<i class="material-icons">add_box</i>
+					</a>
 				</td>
 			</tr>
 		</table>
