@@ -1,10 +1,13 @@
 package com.team4.model.product;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.team4.finalproj.product.ProductBean;
 import com.team4.finalproj.product.ProductPictureBean;
+import com.team4.finalproj.product.StockBean;
 
 @Repository
 public class ProductDao implements ProductDaoInter {
@@ -14,6 +17,16 @@ public class ProductDao implements ProductDaoInter {
 	@Override
 	public String getNewNo() {
 		return String.valueOf((Integer.valueOf(annoInter.getNewNo()) + 1));
+	}
+	
+	@Override
+	public List<ProductMgtDto> getProdMgtList(String des_id) {
+		return annoInter.getProdMgtList(des_id);
+	}
+
+	@Override
+	public List<StockDto> getStockList(String prod_no) {
+		return annoInter.getStockList(prod_no);
 	}
 	
 	@Override
@@ -40,4 +53,18 @@ public class ProductDao implements ProductDaoInter {
 		}
 		return b;
 	}
+	
+	@Override
+	public boolean insertStock(StockBean stockBean) {
+		boolean b = false;
+		try {
+			stockBean.setStock_no(String.valueOf((Integer.valueOf(annoInter.getNewStockNo()) + 1)));
+			boolean re = annoInter.insertStock(stockBean);
+			if(re) b = true;
+		} catch (Exception e) {
+			System.out.println("insertStock err : " + e);
+		}
+		return b;
+	}
+	
 }

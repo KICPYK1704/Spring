@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,6 +13,11 @@
 	$(document).ready(function() {
 		$('select').material_select();
 	});
+	function submit(){
+		if(confirm('기입하신 내용대로 재고를 추가하시겠습니까?')){
+			$('#insertform').submit();
+		}
+	}
 </script>
 <title>재고 등록</title>
 </head>
@@ -19,10 +25,10 @@
 	<div class="container">
 		<div class="row">
 			<div class="col s2">
-				상품번호 : {1}
+				상품번호 : ${prod_no}
 			</div>
-			<div class="col s2">
-				상품명 : {장갑}
+			<div class="col s8 left-align">
+				상품명 : ${prod_name}
 			</div>
 		</div>
 		<div class="row">
@@ -33,28 +39,30 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td>L</td>
-						<td>블랙</td>
-						<td>10</td>
-						<td>
-							<a href="">
-								<i class="material-icons">edit</i>
-							</a>
-							/
-							<a href="">
-								<i class="material-icons">delete</i>
-							</a>
-						</td>
-					</tr>
+					<c:forEach var="dto" items="${stock_list}">
+						<tr>
+							<td>${dto.stock_size}</td>
+							<td>${dto.stock_color}</td>
+							<td>${dto.stock_quantity}</td>
+							<td>
+								<a href="">
+									<i class="material-icons">edit</i>
+								</a>
+								/
+								<a href="">
+									<i class="material-icons">delete</i>
+								</a>
+							</td>
+						</tr>
+					</c:forEach>
 				</tbody>
 			</table>
 		</div>
 		<div class="row">
-			<form action="#" method="get">
+			<form id="insertform" action="stock_insert" method="post">
 				<div class="col s12 center-align" style="border-bottom: 1px solid black"></div>
 		    	<div class="input-field col s4">
-			        <select>
+			        <select name="stock_size">
 					    <option value="XS">XS</option>
 					    <option value="S" selected>S</option>
 					    <option value="M">M</option>
@@ -72,10 +80,12 @@
 			        <label for="stock_quantity">재고량</label>
 		        </div>
 		    	<div class="input-field col s2 right-align">
-		    		<a href="">
+		    		<a href="javascript:submit()">
 						<i class="material-icons medium">add_box</i>
 					</a>
 		    	</div>
+		    	<input type="hidden" name="stock_prodno" value="${prod_no}">
+		    	<input type="hidden" name="prod_name" value="${prod_name}">
 	    	</form>
 		</div>
 	</div>

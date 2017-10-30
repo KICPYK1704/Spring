@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,9 +12,22 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		$('select').material_select();
+		$('#begin_date').attr("placeholder", beginDate());
+		$('#end_date').attr("placeholder", endDate());
 	});
-	function openStock(){
-		window.open('./product_stockadd.jsp','window',"width=1000, height=500, left=200, top=200, toolbar=no, menubar=no, resizable=yes");
+	function openStock(prod_no, prod_name){
+		window.open('stock_insert?prod_no='+ prod_no + '&prod_name=' + prod_name,'window',"width=1000, height=500, left=200, top=200, toolbar=no, menubar=no, resizable=yes");
+	}
+	function beginDate(){
+		var today = new Date();
+		var y = new Date(today.getFullYear(),today.getMonth(),today.getDate() - 30);
+		var beginDate = y.getFullYear() + "-" + (y.getMonth() +1 ) + "-" + y.getDate();
+		return beginDate;
+	}
+	function endDate(){
+		var today = new Date();
+		var endDate = today.getFullYear() + "-" + (today.getMonth() +1 ) + "-" + today.getDate();
+		return endDate;
 	}
 </script>
 <title>상품 관리</title>
@@ -27,20 +41,20 @@
     		<div class="nav-content blue-grey darken-4">
     			<div class="row">
     				<div class="col s2 center-align">
-    					<a class="btn white black-text">NEW 상품등록</a>
+    					<a href="product_insert" class="btn white black-text">NEW 상품등록</a>
     				</div>
     				<div class="col s7 offset-s3">
     					<div class="row">
 	    					<form action="#" method="get">
 						    	<div class="input-field col s2 offset-s1">
-							        <input name="start_date" id="start_date" type="text" class="validate" placeholder="2017-10-25">
+							        <input name="start_date" id="begin_date" type="text" class="validate" placeholder="">
 							        <label for="start_date">등록일</label>
 						        </div>
 						    	<div class="col s1 center-align">
 						    		~
 						        </div>
 						    	<div class="input-field col s2">
-							        <input name="start_date" id="start_date" type="text" class="validate" placeholder="2017-10-27">
+							        <input name="end_date" id="end_date" type="text" class="validate" placeholder="">
 						        </div>
 						    	<div class="input-field col s2">
 							        <select>
@@ -65,23 +79,24 @@
 				<thead>
 					<tr>
 						<th>번호</th><th>상품번호</th><th>상품명</th><th>디자이너명</th>
-						<th>판매가</th><th>조회수</th><th>분류</th><th>장르</th>
+						<th>판매가</th><th>조회수</th><th>성별</th><th>분류</th>
 						<th>등록일</th><th>재고</th><th>수정/삭제</th>
 					</tr>
 				</thead>
 				<tbody>
+					<c:forEach var="dto" items="${prod_list}" varStatus="status">
 					<tr>
-						<td>1</td>
-						<td>1</td>
-						<td>장갑</td>
-						<td>홍길동</td>
-						<td>50,000</td>
-						<td>50</td>
-						<td>남자</td>
-						<td>힙합</td>
-						<td>2017-10-25</td>
+						<td>${status.count}</td>
+						<td>${dto.prod_no}</td>
+						<td>${dto.prod_name}</td>
+						<td>${dto.prod_designerid}</td>
+						<td>${dto.prod_price}</td>
+						<td>${dto.prod_hit}</td>
+						<td>${dto.prod_classf1}</td>
+						<td>${dto.prod_classf2}</td>
+						<td>${dto.prod_regdate}</td>
 						<td>
-							<a href="javascript:openStock()">
+							<a href="javascript:openStock(${dto.prod_no}, '${dto.prod_name}')">
 								<i class="material-icons">store</i>
 							</a>
 						</td>
@@ -95,6 +110,7 @@
 							</a>
 						</td>
 					</tr>
+					</c:forEach>
 					<tr>
 						<td colspan="11">
 							<ul class="pagination">
