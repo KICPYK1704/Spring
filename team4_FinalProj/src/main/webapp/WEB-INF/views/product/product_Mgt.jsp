@@ -22,7 +22,7 @@
 	<div class="container">
 		<nav>
 	    	<div class="nav-wrapper blue-grey darken-4">
-	    		<a href="#" class="brand-logo center">상품 관리</a>
+	    		<a href="product_insert" class="brand-logo center">상품 관리</a>
 			</div>
     		<div class="nav-content blue-grey darken-4">
     			<div class="row">

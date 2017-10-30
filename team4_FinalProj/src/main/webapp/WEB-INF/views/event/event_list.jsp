@@ -50,7 +50,8 @@
 					</ul>
 				</td>
 				<td>
-					<a herf="event_insert?writer=${sessionScope.login_des}">
+					<!-- <a herf="event_insert?writer=${sessionScope.login_des}">  -->
+					<a href="event_insert?writer=jinho">
 						<i class="material-icons">add_box</i>
 					</a>
 				</td>

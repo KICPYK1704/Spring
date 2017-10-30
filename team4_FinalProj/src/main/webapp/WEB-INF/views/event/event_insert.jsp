@@ -10,7 +10,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
+<script type="text/javascript">
+	function submit(){
+		$('#insertform').submit()
+	}
+</script>
 <title>Event Create</title>
 </head>
 <body>
@@ -20,7 +24,7 @@
 		    	<div class="nav-wrapper blue-grey darken-4">
 		    		<a href="#" class="brand-logo center">이벤트 등록</a>
 		    		<ul id="side-nav" class="right hide-on-med-and-down">
-					    <li><a href="#"><i class="material-icons large">done</i></a></li>
+					    <li><a href="javascript:submit()"><i class="material-icons large">done</i></a></li>
 					    <!-- done의 a태그내에 자바스크립트 연결해서 sform submit 되도록! -->
 				    </ul>
 				</div>
@@ -42,26 +46,27 @@
 					</div>
 					
 					<!-- spring form tag 사용! 파일 업로드를 위해 -->
-					<sform:form enctype="multipart/form-data" modelAttribute="uploadFile"> <!-- enctype="multipart/form-data" 대용량 파일 업로드할 때 써주는 타입 -->
+					<sform:form id="insertform" enctype="multipart/form-data" modelAttribute="eventBean"> <!-- enctype="multipart/form-data" 대용량 파일 업로드할 때 써주는 타입 -->
 						<div class="input-field col s10 left-align" style="margin:0px">
-							<input id="event_title" type="text" class="validate" placeholder="제목을 입력하세요" style="margin:0px">
+							<input name="event_title" type="text" class="validate" placeholder="제목을 입력하세요" style="margin:0px">
 						</div>
 						<div class="input-field col s12">
-					      	<textarea id="event_content" class="materialize-textarea" placeholder="방명록 작성"></textarea>
+					      	<textarea name="event_content" class="materialize-textarea" placeholder="방명록 작성"></textarea>
 					    </div>
 						<div class="input-field col s4 center">
-							<img src="./resources/event.jpg" style="width:80%">
+							<img src="" style="width:80%">
 						</div>
 						<div class="file-field col s6 input-field">
 					      <div class="btn">
 					        <span>File</span>
-							<input type="file" name="file">
+							<input type="file" name="upload_img">
 							<sform:errors path="file" cssStyle="color:red" />
 					      </div>
 					      <div class="file-path-wrapper">
 					        <input class="file-path validate" type="text" placeholder="Upload Pic">
 					      </div>
 					    </div>
+					    <input type="hidden" name="event_writer" value="${param.writer}">
 					</sform:form>
 					
 		        </div>

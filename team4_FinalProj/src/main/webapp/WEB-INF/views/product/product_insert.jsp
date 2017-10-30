@@ -15,6 +15,12 @@
 		$('textarea#prod_intro, textarea#prod_Msg').characterCounter();
 		$('select').material_select();
 		$('.tooltipped').tooltip({delay: 50});
+		$('#reset').click(function(){
+			$('#insertform').reset();
+		});
+		$('#submit').click(function(){
+			$('#insertform').submit();
+		});
 	});
 </script>
 <style type="text/css">
@@ -92,17 +98,20 @@
 </style>
 </head>
 <body>
+<sform:form id="insertform" enctype="multipart/form-data" modelAttribute="productBean">
 <div class="container">
 	<nav>
     	<div class="nav-wrapper blue-grey darken-4">
     		<a href="#" class="brand-logo center">상품 입력</a>
 			<ul class="right hide-on-med-and-down">
 				<li>상품번호(자동생성):&nbsp;&nbsp;&nbsp;</li>
-				<li>1</li>
+				<li>${prod_no}</li>
 				<li>&nbsp;&nbsp;</li>
 			</ul>
 		</div>
 	</nav>
+	<input type="hidden" name="prod_no" value="${prod_no}">
+
 	<div class="row">
 	
 	<!-- 여백 -->
@@ -116,6 +125,8 @@
 		<b>디자이너 이름: </b>
 		<b>홍길동</b>
 	</div>
+	<input type="hidden" name="prod_designerno" value="jinho">
+	<!-- value="${sessionScope.login_des}"로 변경필요 -->
 	
 	<!-- 여백 -->
 	<div class="col s12 free-container3"></div>
@@ -123,105 +134,103 @@
 	<!-- 샵, 디자이너 타이틀 및 이미지 레이아웃 -->
 	<div class="col s8">
 		<div class="row">
-			<sform:form enctype="multipart/form-data" modelAttribute="uploadFile">
-				
-				<!-- 이미지 -->
-				<div class="col s4">
-					<div class="card">
-			        	<div class="card-image">
-							<img class="" src="./resources/default200x200.png">
-			        	</div>
-			        	<div class="card-content">
-				        	<div class="file-field input-field">
-							    <div class="btn" style="padding-left:8px; padding-right:10px;">
-								    <i class="material-icons">file_upload</i>
-									<input type="file" name="img_url">
-									<sform:errors path="file" cssStyle="color:red" />
-							    </div>
-							    <div class="file-path-wrapper">
-							    	<input class="file-path validate" type="text" placeholder="img_url">
-							    </div>
+			
+			<!-- 이미지 -->
+			<div class="col s4">
+				<div class="card">
+		        	<div class="card-image">
+						<img class="" src="./resources/default200x200.png">
+		        	</div>
+		        	<div class="card-content">
+			        	<div class="file-field input-field">
+						    <div class="btn" style="padding-left:8px; padding-right:10px;">
+							    <i class="material-icons">file_upload</i>
+								<input type="file" name="files[0]">
+								<sform:errors path="file" cssStyle="color:red" />
 						    </div>
-			        	</div>
-		            </div>
-				</div>				
-				<div class="col s4">
-					<div class="card">
-			        	<div class="card-image">
-							<img class="" src="./resources/default200x200.png">
-			        	</div>
-			        	<div class="card-content">
-				        	<div class="file-field input-field">
-							    <div class="btn" style="padding-left:8px; padding-right:10px;">
-								    <i class="material-icons">file_upload</i>
-									<input type="file" name="img_url">
-									<sform:errors path="file" cssStyle="color:red" />
-							    </div>
-							    <div class="file-path-wrapper">
-							    	<input class="file-path validate" type="text" placeholder="img_url">
-							    </div>
+						    <div class="file-path-wrapper">
+						    	<input class="file-path validate" type="text" placeholder="pic_url">
 						    </div>
-			        	</div>
-		            </div>
-				</div>				
-				<div class="col s4">
-					<div class="card">
-			        	<div class="card-image">
-							<img class="" src="./resources/default200x200.png">
-			        	</div>
-			        	<div class="card-content">
-				        	<div class="file-field input-field">
-							    <div class="btn" style="padding-left:8px; padding-right:10px;">
-								    <i class="material-icons">file_upload</i>
-									<input type="file" name="img_url">
-									<sform:errors path="file" cssStyle="color:red" />
-							    </div>
-							    <div class="file-path-wrapper">
-							    	<input class="file-path validate" type="text" placeholder="img_url">
-							    </div>
+					    </div>
+		        	</div>
+	            </div>
+			</div>				
+			<div class="col s4">
+				<div class="card">
+		        	<div class="card-image">
+						<img class="" src="./resources/default200x200.png">
+		        	</div>
+		        	<div class="card-content">
+			        	<div class="file-field input-field">
+						    <div class="btn" style="padding-left:8px; padding-right:10px;">
+							    <i class="material-icons">file_upload</i>
+								<input type="file" name="files[1]">
+								<sform:errors path="file" cssStyle="color:red" />
 						    </div>
-			        	</div>
-		            </div>
-				</div>				
-				<div class="col s4">
-					<div class="card">
-			        	<div class="card-image">
-							<img class="" src="./resources/default200x200.png">
-			        	</div>
-			        	<div class="card-content">
-				        	<div class="file-field input-field">
-							    <div class="btn" style="padding-left:8px; padding-right:10px;">
-								    <i class="material-icons">file_upload</i>
-									<input type="file" name="img_url">
-									<sform:errors path="file" cssStyle="color:red" />
-							    </div>
-							    <div class="file-path-wrapper">
-							    	<input class="file-path validate" type="text" placeholder="img_url">
-							    </div>
+						    <div class="file-path-wrapper">
+						    	<input class="file-path validate" type="text" placeholder="pic_url">
 						    </div>
-			        	</div>
-		            </div>
-				</div>				
-				<div class="col s4">
-					<div class="card">
-			        	<div class="card-image">
-							<img class="" src="./resources/default200x200.png">
-			        	</div>
-			        	<div class="card-content">
-				        	<div class="file-field input-field">
-							    <div class="btn" style="padding-left:8px; padding-right:10px;">
-								    <i class="material-icons">file_upload</i>
-									<input type="file" name="img_url">
-									<sform:errors path="file" cssStyle="color:red" />
-							    </div>
-							    <div class="file-path-wrapper">
-							    	<input class="file-path validate" type="text" placeholder="img_url">
-							    </div>
+					    </div>
+		        	</div>
+	            </div>
+			</div>				
+			<div class="col s4">
+				<div class="card">
+		        	<div class="card-image">
+						<img class="" src="./resources/default200x200.png">
+		        	</div>
+		        	<div class="card-content">
+			        	<div class="file-field input-field">
+						    <div class="btn" style="padding-left:8px; padding-right:10px;">
+							    <i class="material-icons">file_upload</i>
+								<input type="file" name="files[2]">
+								<sform:errors path="file" cssStyle="color:red" />
 						    </div>
-			        	</div>
-		            </div>
-				</div>				
-			</sform:form>
+						    <div class="file-path-wrapper">
+						    	<input class="file-path validate" type="text" placeholder="pic_url">
+						    </div>
+					    </div>
+		        	</div>
+	            </div>
+			</div>				
+			<div class="col s4">
+				<div class="card">
+		        	<div class="card-image">
+						<img class="" src="./resources/default200x200.png">
+		        	</div>
+		        	<div class="card-content">
+			        	<div class="file-field input-field">
+						    <div class="btn" style="padding-left:8px; padding-right:10px;">
+							    <i class="material-icons">file_upload</i>
+								<input type="file" name="files[3]">
+								<sform:errors path="file" cssStyle="color:red" />
+						    </div>
+						    <div class="file-path-wrapper">
+						    	<input class="file-path validate" type="text" placeholder="pic_url">
+						    </div>
+					    </div>
+		        	</div>
+	            </div>
+			</div>				
+			<div class="col s4">
+				<div class="card">
+		        	<div class="card-image">
+						<img class="" src="./resources/default200x200.png">
+		        	</div>
+		        	<div class="card-content">
+			        	<div class="file-field input-field">
+						    <div class="btn" style="padding-left:8px; padding-right:10px;">
+							    <i class="material-icons">file_upload</i>
+								<input type="file" name="files[4]">
+								<sform:errors path="file" cssStyle="color:red" />
+						    </div>
+						    <div class="file-path-wrapper">
+						    	<input class="file-path validate" type="text" placeholder="pic_url">
+						    </div>
+					    </div>
+		        	</div>
+	            </div>
+			</div>				
 		</div>
 	</div>
 		
@@ -293,12 +302,12 @@
 					</a>
 				</div>
 				<div class="input-field col s4">
-					<button class="btn waves-effect waves-light tooltipped" type="reset" data-position="bottom" data-delay="50" data-tooltip="다시 입력">
+					<button id="reset" class="btn waves-effect waves-light tooltipped" type="reset" data-position="bottom" data-delay="50" data-tooltip="다시 입력">
 						<i class="material-icons">refresh</i>
 					</button>
 				</div>
 				<div class="input-field col s4">
-					<button class="btn waves-effect waves-light tooltipped" type="submit" data-position="bottom" data-delay="50" data-tooltip="상품 등록">
+					<button id="submit" class="btn waves-effect waves-light tooltipped" type="submit" data-position="bottom" data-delay="50" data-tooltip="상품 등록">
 						<i class="material-icons">done</i>
 					</button>
 				</div>
@@ -307,5 +316,6 @@
 	</div>
 	</div>
 </div>
+</sform:form>
 </body>
 </html>

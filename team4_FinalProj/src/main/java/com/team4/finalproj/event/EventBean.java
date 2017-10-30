@@ -1,10 +1,36 @@
 package com.team4.finalproj.event;
 
-public class EventBean {
-	private String event_no, event_writer, event_title, event_content, event_regdate, img_url;
+import org.springframework.web.multipart.MultipartFile;
 
+public class EventBean {
+	private String event_no, event_writer, event_title, event_content, event_regdate, event_hit, img_url, reply_count;
+	private MultipartFile upload_img;
+	
+	public MultipartFile getUpload_img() {
+		return upload_img;
+	}
+	public void setUpload_img(MultipartFile upload_img) {
+		this.upload_img = upload_img;
+	}
+	
 	public String getImg_url() {
 		return img_url;
+	}
+
+	public String getReply_count() {
+		return reply_count;
+	}
+
+	public void setReply_count(String reply_count) {
+		this.reply_count = reply_count;
+	}
+
+	public String getEvent_hit() {
+		return event_hit;
+	}
+
+	public void setEvent_hit(String event_hit) {
+		this.event_hit = event_hit;
 	}
 
 	public void setImg_url(String img_url) {
@@ -50,6 +76,5 @@ public class EventBean {
 	public void setEvent_regdate(String event_regdate) {
 		this.event_regdate = event_regdate;
 	}
-	
 	
 }

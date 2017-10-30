@@ -9,11 +9,10 @@ public class EventDto {
 	public MultipartFile getUpload_img() {
 		return upload_img;
 	}
-
 	public void setUpload_img(MultipartFile upload_img) {
 		this.upload_img = upload_img;
 	}
-
+	
 	public String getImg_url() {
 		return img_url;
 	}
@@ -77,6 +76,5 @@ public class EventDto {
 	public void setEvent_regdate(String event_regdate) {
 		this.event_regdate = event_regdate;
 	}
-	
 	
 }
