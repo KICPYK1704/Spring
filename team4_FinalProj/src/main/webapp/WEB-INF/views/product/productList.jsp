@@ -72,8 +72,6 @@ transition: opacity .45s cubic-bezier(.25,.46,.45,.94),margin-top .45s cubic-bez
 </style>
 </head>
 <body>
-<%@include file="../../../top.jsp"%>
-<div id="top_block">
 <span id="classf1" style="display:none;">${prod_classf1}</span>
 <span id="classf2" style="display:none;">${prod_classf2}</span>
 <!-- parallax 이미지 -->
@@ -123,29 +121,32 @@ transition: opacity .45s cubic-bezier(.25,.46,.45,.94),margin-top .45s cubic-bez
     	
     	
     	<!-- 카드 예시 -->
-   			<div class="row">
-	    		<c:forEach var="p" items="${list}" varStatus="status">
-	        		<div class="col s12 m3 offset-m1 prod">
-	        			<span style="display:none;">${p.prod_no}</span>
-	        			<div class="card list_detail">
-	            			<div class="card-image">
-	              				<img src="resources/img/${p.pic_url }">
-	            			</div>
-	            			<div class="card-content">
-	              			<p style="text-align: right;">${p.prod_price }  </p>
-	              			<div class="detail">${p.prod_name }<br>${p.des_name } ${p.des_shoptitle }</div>
-	           				</div>
-	        	  		</div>
-	        		</div>
-	        		<c:if test="${status.count%3 eq 0}">
-	        			</div>
-	        			<div class="row">
-	        		</c:if>
-	    		</c:forEach>
-	   		</div>
+    	
+    		<div class="row">
+    		
+    		
+    		<c:forEach var="p" items="${list }">
+        		<div class="col m1"></div>
+    			
+        		<div class="col s12 m3 prod">
+        			<span style="display:none;">${p.prod_no}</span>
+        			<div class="card list_detail">
+            			<div class="card-image">
+              				<img src="resources/img/${p.pic_url }">
+            			</div>
+            			<div class="card-content">
+              			<p style="text-align: right;">${p.prod_price }  </p>
+              			<div class="detail">${p.prod_name }<br>${p.des_name } ${p.des_shoptitle }</div>
+           				</div>
+        	  		</div>
+        		</div>
+        		
+    		</c:forEach>
+       
+    		</div>
+     
     	</div>
 	</div>
-</div>
 </div>
 </body>
 </html>
