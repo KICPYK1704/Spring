@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.team4.finalproj.order.OrderBean;
 import com.team4.model.member.MemberDto;
 
 @Repository
@@ -39,5 +40,14 @@ public class OrderDao implements OrderDaoInter {
 	@Override
 	public MemberDto selectMemberInfo(String mem_id) {
 		return annoInter.selectMemberInfo(mem_id);
+	}
+	
+	@Override
+	public boolean insertOrder(OrderBean bean) {
+		boolean b = false;
+		if(annoInter.insertOrder(bean)){
+			b = true;
+		}
+		return b;
 	}
 }

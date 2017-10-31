@@ -60,8 +60,11 @@ public class OrderProcessController {
 	
 	@RequestMapping(value="orderprocess", method=RequestMethod.POST)
 	public ModelAndView ordercomplete(HttpServletRequest request, HttpServletResponse response, HttpSession session, OrderBean bean){
-		ModelAndView view = new ModelAndView("order/ordercomplete");
-		
+		ModelAndView view = null;
+		if(daoInter.insertOrder(bean)){
+			view = new ModelAndView("ordercomplete");
+			view.addObject("bean", bean);
+		} else view = new ModelAndView("redirect:error.jsp");
 		return view;
 	}
 }

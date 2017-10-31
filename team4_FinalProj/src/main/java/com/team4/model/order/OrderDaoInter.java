@@ -2,6 +2,7 @@ package com.team4.model.order;
 
 import java.util.List;
 
+import com.team4.finalproj.order.OrderBean;
 import com.team4.model.member.MemberDto;
 
 public interface OrderDaoInter {
@@ -9,4 +10,5 @@ public interface OrderDaoInter {
 	PreOrderDto selectOneProduct(String stock_no);
 	List<PreOrderDto> selectCartProduct(String mem_id);
 	MemberDto selectMemberInfo(String mem_id);
+	boolean insertOrder(OrderBean bean);
 }
