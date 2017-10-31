@@ -1,37 +1,18 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <style type="text/css">
 
-nav{
+#top_nav {
+	z-index: 800;
 	background: -webkit-linear-gradient(top right, #ffffff, #ecebeb);
-}
-
-nav a{
-	color: #010101;
-}
-
-nav ul a{
-	color: #010101;
-}
-
-nav .brand-logo {
-	color: #010101;
 }
 
 nav a.button-collapse {
     display: block; 
 }
 
-select {
+.search_sel {
 	height: 30px;
 	font-size: 16px;
 	padding: 0px;
@@ -137,29 +118,15 @@ $(document).ready(function(){
 		}
 	});
 	
-	 $('.collapsible').collapsible();
-	
-	 $('.filled-in').click(function(){
-		 if($('#ch_All').attr("checked", "checked")){
-				$('#check1').attr("checked", "");
-				$('#check2').attr("checked", "");
-				$('#check3').attr("checked", "");
-				$('#check4').attr("checked", "");
-				$('#check5').attr("checked", "");
-		}
-		 if($('#check1').attr("checked", "checked")){
-				$('#ch_All').attr("checked", "");
-		}else if($('#check2').attr("checked", "checked")){
-				$('#ch_All').attr("checked", "");
-		}else if($('#check3').attr("checked", "checked")){
-				$('#ch_All').attr("checked", "");
-		}else if($('#check4').attr("checked", "checked")){
-				$('#ch_All').attr("checked", "");
-		}else if($('#check5').attr("checked", "checked")){
-				$('#ch_All').attr("checked", "");
-		}
-	 });
-	  
+	$('.collapsible').collapsible();
+	$('.pushpin-demo-nav').each(function() {
+	    var $this = $(this);
+	    var $target = $('#' + $(this).attr('data-target'));
+	    $this.pushpin({
+	      top: $target.offset().top - $this.height(),
+	      bottom: $target.offset().top + $target.outerHeight() - $this.height()
+	    });
+	});
 });
 
 	
@@ -229,18 +196,15 @@ function detailHide(elementid){
     <li><a href="#!">소개</a></li>
     <li>
     	<br>
-    	<br>
     </li>
     <li><a href="#!">쇼핑 스트리트</a></li>
     <li><a href="#!">제품 리스트</a></li>
     <li>
     	<br>
-    	<br>
     </li>
     <li><a href="#!">이벤트</a></li>
     <li><a href="#!">FAQ</a></li>
     <li>
-    	<br>
     	<br>
     	<br>
     </li>
@@ -254,9 +218,8 @@ function detailHide(elementid){
 	<!-- 상세 검색 -->
 
 	<div id="searchTab" class="searchBox"> 
-	<form action="">
 		<div>
-			<select class="left" name="stype" style="width: 80px;">
+			<select class="left search_sel" name="stype" style="width: 80px;">
 				<option value="상품" selected="selected">상품</option>
 				<option value="디자이너" >디자이너</option>
 			</select>
@@ -270,58 +233,56 @@ function detailHide(elementid){
 			<div class="col s10">
 				
    			   <span class="au_bar_s_f"></span>
-				<input class="with-gap" name="prod_classf1" type="radio" id="test1"  checked="checked"/>
+				<input class="with-gap" name="group1" type="radio" id="test1"  checked="checked"/>
    			   <label for="test1"><i>all</i></label>
    			   <span class="au_bar_s"></span>
-  			    <input class="with-gap" name="prod_classf1" type="radio" id="test2" />
+  			    <input class="with-gap" name="group1" type="radio" id="test2" />
   			    <label for="test2"><i>man</i></label>
    			   <span class="au_bar_s"></span>
-  			    <input class="with-gap" name="prod_classf1" type="radio" id="test3"  />
+  			    <input class="with-gap" name="group1" type="radio" id="test3"  />
   			    <label for="test3"><i>woman</i></label>
    			   <span class="au_bar_s"></span>
- 			     <input class="with-gap" name="prod_classf1" type="radio" id="test4"/>
+ 			     <input class="with-gap" name="group1" type="radio" id="test4"/>
  			     <label for="test4"><i>free</i></label>
  			     <p/>
    			   <span class="au_bar_s_f"></span>
- 			     <input type="checkbox" class="filled-in" name="prod_classf2" id="ch_All" checked="checked"/>
-     			 <label for="ch_All">전체</label>
+ 			     <input type="checkbox" class="filled-in" id="check1" checked="checked" />
+     			 <label for="check1">전체</label>
    			   <span class="au_bar_c"></span>
- 			     <input type="checkbox" class="filled-in" name="prod_classf2" id="check1"/>
-     			 <label for="check1">상의</label>
+ 			     <input type="checkbox" class="filled-in" id="check2"/>
+     			 <label for="check2">상의</label>
    			   <span class="au_bar_c"></span>
- 			     <input type="checkbox" class="filled-in" name="prod_classf2" id="check2"/>
-     			 <label for="check2">하의</label>
+ 			     <input type="checkbox" class="filled-in" id="check3"/>
+     			 <label for="check3">하의</label>
    			   <span class="au_bar_c"></span>
- 			     <input type="checkbox" class="filled-in" name="prod_classf2" id="check3"/>
-     			 <label for="check3">신발</label>
+ 			     <input type="checkbox" class="filled-in" id="check4"/>
+     			 <label for="check4">신발</label>
  			     <p/>
    			   <span class="au_bar_s_f2"></span>
- 			     <input type="checkbox" class="filled-in" name="prod_classf2" id="check4"/>
-     			 <label for="check4">잡화</label>
+ 			     <input type="checkbox" class="filled-in" id="check5"/>
+     			 <label for="check5">잡화</label>
    			   <span class="au_bar_c"></span>
- 			     <input type="checkbox" class="filled-in" name="prod_classf2" id="check5"/>
-     			 <label for="check5">악세서리</label>
+ 			     <input type="checkbox" class="filled-in" id="check6"/>
+     			 <label for="check6">악세서리</label>
 			</div>
 			</div>
 		</div>
-	</form>
 	</div>
    
 <!-- 타이틀 바 -->
-<nav>
-    <div class="nav-wrapper">
-      <a href="#" class="brand-logo center">Logo</a>
-      <ul id="nav1" class="left hide-on-med-and-down">
-        <li><a class="button-collapse" href="#!" data-activates="slide-out"><i class="material-icons" style="font-size: 2rem">menu</i></a></li>
-        <li><a class="dropdown-button" href="#!" data-activates="dropdown1">쇼핑 스트리트<i class="material-icons right">arrow_drop_down</i></a></li>
-        <li><a class="dropdown-button" href="#!" data-activates="dropdown2">제품 리스트<i class="material-icons right">arrow_drop_down</i></a></li>
-      </ul>
-      <ul id="nav2" class="right hide-on-med-and-down">
-        <li><a id="cart" href="Cart" ><i class="material-icons" style="font-size: 2.2rem">shopping_cart</i></a></li>
-        <li><a id="btnOne" href="#!" data-activates="searchTab"><i class="material-icons" style="font-size: 2.2rem">search</i></a></li>
-      </ul>
-    </div>
-  </nav>
+<nav id="top_nav" class="pushpin-demo-nav" data-target="top_block">
+  <div class="nav-wrapper">
+    <a href="#" class="brand-logo center black-text">Logo</a>
+    <ul id="nav1" class="left hide-on-med-and-down">
+      <li><a class="button-collapse black-text" href="#!" data-activates="slide-out"><i class="material-icons" style="font-size: 2rem">menu</i></a></li>
+      <li><a class="dropdown-button black-text" href="#!" data-activates="dropdown1">쇼핑 스트리트<i class="material-icons right">arrow_drop_down</i></a></li>
+      <li><a class="dropdown-button black-text" href="#!" data-activates="dropdown2">제품 리스트<i class="material-icons right">arrow_drop_down</i></a></li>
+    </ul>
+    <ul id="nav2" class="right hide-on-med-and-down">
+      <li><a id="btnOne" href="#!" data-activates="searchTab"><i class="material-icons black-text" style="font-size: 2.2rem">search</i></a></li>
+    </ul>
+  </div>
+</nav>
   
 </body>
 </html>
