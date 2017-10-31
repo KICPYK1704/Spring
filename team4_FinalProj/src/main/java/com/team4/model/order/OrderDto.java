@@ -1,11 +1,11 @@
 package com.team4.model.order;
 
 public class OrderDto {
-	private String order_no, order_stockno, order_quantity, order_memid;
+	private String order_no, order_stockno, order_memid;
 	private String order_name, order_addr, order_tel, order_message;
 	private String order_regdate, order_state, order_pay, order_paymethod;
 	private String pic_url, stock_size, stock_color, prod_no, prod_name;
-	private int prod_price;
+	private int prod_price, order_quantity;
 	
 	public String getProd_name() {
 		return prod_name;
@@ -56,10 +56,10 @@ public class OrderDto {
 	public void setOrder_stockno(String order_stockno) {
 		this.order_stockno = order_stockno;
 	}
-	public String getOrder_quantity() {
+	public int getOrder_quantity() {
 		return order_quantity;
 	}
-	public void setOrder_quantity(String order_quantity) {
+	public void setOrder_quantity(int order_quantity) {
 		this.order_quantity = order_quantity;
 	}
 	public String getOrder_memid() {

@@ -50,4 +50,9 @@ public class OrderDao implements OrderDaoInter {
 		}
 		return b;
 	}
+	
+	@Override
+	public String getEmail(String mem_id) {
+		return annoInter.getEmail(mem_id);
+	}
 }
