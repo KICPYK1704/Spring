@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class OrderCompleteController {
 	@RequestMapping("ordercomplete")
 	public String orderProcess(){
-		return "ordercomplete";
+		return "order/ordercomplete";
 	}
 }
