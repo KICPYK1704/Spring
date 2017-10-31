@@ -165,22 +165,22 @@ function detailHide(elementid){
 <ul id="dropdown1" class="dropdown-content">
   <li><a href="#!" style="color: black;">쇼핑 스트리트</a></li>
   <li class="divider"></li>
-  <li><a href="#!">상의</a></li>
-  <li><a href="#!">하의</a></li>
-  <li><a href="#!">신발</a></li>
-  <li><a href="#!">잡화</a></li>
-  <li><a href="#!">악세서리</a></li>
+  <li><a href="shoppingStreet">장르1</a></li>
+  <li><a href="shoppingStreet">장르2</a></li>
+  <li><a href="shoppingStreet">장르3</a></li>
+  <li><a href="shoppingStreet">장르4</a></li>
+  <li><a href="shoppingStreet">장르5</a></li>
 </ul>
 
 <!-- 제품 리스트 드롭다운 설정 -->
 <ul id="dropdown2" class="dropdown-content">
   <li><a href="#!" style="color: black;">제품 리스트</a></li>
   <li class="divider"></li>
-  <li><a href="#!">상의</a></li>
-  <li><a href="#!">하의</a></li>
-  <li><a href="#!">신발</a></li>
-  <li><a href="#!">잡화</a></li>
-  <li><a href="#!">악세서리</a></li>
+  <li><a href="ProductList?prod_classf1=all&prod_classf2=상의">상의</a></li>
+  <li><a href="ProductList?prod_classf1=all&prod_classf2=하의">하의</a></li>
+  <li><a href="ProductList?prod_classf1=all&prod_classf2=신발">신발</a></li>
+  <li><a href="ProductList?prod_classf1=all&prod_classf2=잡화">잡화</a></li>
+  <li><a href="ProductList?prod_classf1=all&prod_classf2=악세서리">악세서리</a></li>
 </ul>
 
  <!-- 사이드 바 -->
@@ -197,8 +197,8 @@ function detailHide(elementid){
     <li>
     	<br>
     </li>
-    <li><a href="#!">쇼핑 스트리트</a></li>
-    <li><a href="#!">제품 리스트</a></li>
+    <li><a href="shoppingStreet">쇼핑 스트리트</a></li>
+    <li><a href="ProductList?prod_classf1=all&prod_classf2=all">제품 리스트</a></li>
     <li>
     	<br>
     </li>
