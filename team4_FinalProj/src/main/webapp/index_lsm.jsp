@@ -9,7 +9,7 @@
 <body>
 <br>
 	<a href="orderlist">주문내역 보기~</a><br>
-	<a href="orderprocess">구매하기</a>
+	<a href="orderprocess?quantity=3">구매하기</a>
 	<a href="ordercomplete">구매완료</a>
 </body>
 </html>
