@@ -24,7 +24,7 @@ public class Admin_LoginController {
 		boolean b = adminDaoInter.loginAdmin(bean);		
 	
 		if(b){
-			session.setAttribute("login_", bean.getMem_id());
+			session.setAttribute("login_", bean.getAdm_id());
 			return "congratulation";			
 		}else{
 			return "redirect:/loginerror.jsp";
