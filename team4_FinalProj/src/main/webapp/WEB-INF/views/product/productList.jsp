@@ -15,9 +15,13 @@
 $(document).ready(function(){
     $('.parallax').parallax();
     
+    $('.prod').click(function(){
+    	//alert('${parm.classf1} ${parm.classf2}')
+        location.href='ProductView?prod_no=' + $(this).children("span").text() + '&prod_classf1=' + $('#classf1').text() + '&prod_classf2=' + $('#classf2').text();
+    	
+    });
   });
   
-
 </script>
 <style type="text/css">
 .parallax-container {
@@ -68,7 +72,8 @@ transition: opacity .45s cubic-bezier(.25,.46,.45,.94),margin-top .45s cubic-bez
 </style>
 </head>
 <body>
-
+<span id="classf1" style="display:none;">${prod_classf1}</span>
+<span id="classf2" style="display:none;">${prod_classf2}</span>
 <!-- parallax 이미지 -->
 
 <div class="parallax-container">
@@ -94,16 +99,16 @@ transition: opacity .45s cubic-bezier(.25,.46,.45,.94),margin-top .45s cubic-bez
       		<ul class="ul_item">
       			<li class="li_item">
       				<span class="au_bar_f"></span>
-      				<a class="grey-text text-darken-1" href="ProductList?prod_classf2='상의"><i>all</i></a></li>
+      				<a class="grey-text text-darken-1" href="ProductList?prod_classf2=${prod_classf2}"><i>all</i></a></li>
       			<li class="li_item">
       				<span class="au_bar"></span>
-      				<a class="grey-text text-darken-1" href="ProductList?prod_classf1='남자'&prod_classf2='${prod_classf2}'"><i>man</i></a></li>
+      				<a class="grey-text text-darken-1" href="ProductList?prod_classf1=남자&prod_classf2=${prod_classf2}"><i>man</i></a></li>
       			<li class="li_item">
       				<span class="au_bar"></span>
-      				<a class="grey-text text-darken-1" href="ProductList?prod_classf1='여자'&prod_classf2='${prod_classf2}'"><i>woman</i></a></li>
+      				<a class="grey-text text-darken-1" href="ProductList?prod_classf1=여자&prod_classf2=${prod_classf2}"><i>woman</i></a></li>
       			<li class="li_item">
       				<span class="au_bar"></span>
-      				<a class="grey-text text-darken-1" href="ProductList?prod_classf1='공통'&prod_classf2='${prod_classf2}'"><i>free</i></a></li>
+      				<a class="grey-text text-darken-1" href="ProductList?prod_classf1=공통&prod_classf2=${prod_classf2}"><i>free</i></a></li>
       		</ul>
       		<p/>
       	</div>
@@ -122,15 +127,16 @@ transition: opacity .45s cubic-bezier(.25,.46,.45,.94),margin-top .45s cubic-bez
     		
     		<c:forEach var="p" items="${list }">
         		<div class="col m1"></div>
-    	
-        		<div class="col s12 m3">
+    			
+        		<div class="col s12 m3 prod">
+        			<span style="display:none;">${p.prod_no}</span>
         			<div class="card list_detail">
             			<div class="card-image">
-              				<img src="resources/img/${p.pic_url}">
+              				<img src="resources/img/${p.pic_url }">
             			</div>
             			<div class="card-content">
               			<p style="text-align: right;">${p.prod_price }  </p>
-              			<div class="detail">${p.prod_name })<br>${p.des_name } ${p.des_shoptitle }</div>
+              			<div class="detail">${p.prod_name }<br>${p.des_name } ${p.des_shoptitle }</div>
            				</div>
         	  		</div>
         		</div>

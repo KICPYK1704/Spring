@@ -24,16 +24,19 @@ public class ProductListController {
 		if(prod_classf2.equals("all")){
 			List<ProductDto> list = productDao.prod_listAll();
 			view.addObject("list", list);
-			
+			view.addObject("prod_classf1", prod_classf1);
+			view.addObject("prod_classf2", prod_classf2);
 		}else{
 			if(prod_classf1.equals("all")){
 				List<ProductDto> list = productDao.prod_listC1(prod_classf2);
 				view.addObject("list", list);
+				view.addObject("prod_classf1", prod_classf1);
 				view.addObject("prod_classf2", prod_classf2);
 				
 			}else{
 				List<ProductDto> list = productDao.prod_listC2(prod_classf1, prod_classf2);
 				view.addObject("list", list);
+				view.addObject("prod_classf1", prod_classf1);
 				view.addObject("prod_classf2", prod_classf2);
 				
 			}

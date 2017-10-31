@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -83,6 +84,10 @@
 .box{
 	border: solid black;
 	border-width: thin;
+}
+
+.cartsize{
+	height: 120px;
 
 }
 </style>
@@ -102,7 +107,7 @@
 		<div class="col s1"></div>
 		<div class="col s10">
 			<p />
-			<b style="font-size: 35px;">CART</b>&nbsp;&nbsp;<a class="count">1</a>
+			<b style="font-size: 35px;">CART</b>&nbsp;&nbsp;<a class="count">${count }</a>
 			<hr>
 			<p />
 		</div>
@@ -126,8 +131,9 @@
 				
 				<div class="col s1 abc"><b>No</b></div>
 				<div class="col s2 abc"><b>사진</b></div>
-				<div class="col s3 abc"><b>제품명</b></div>
+				<div class="col s2 abc"><b>제품명</b></div>
 				<div class="col s1 abc"><b>디자이너</b></div>
+				<div class="col s1 abc"><b>옵션</b></div>
 				<div class="col s1 abc"><b>수량</b></div>
 				<div class="col s1 abc"><b>가격</b></div>
 				<div class="col s2 abc"><b>등록일</b></div>
@@ -142,12 +148,18 @@
 				<!-- 목록 상자 -->
 				
 				<div class="col s12 box">
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
+				<c:forEach var="c" items="${list }">
+				
+				<div class="col s1 text-center cartsize">${c.cart_no }</div>
+				<div class="col s2 text-center cartsize"><img class="responsive-img" src="resources/img/${c.pic_url }"></div>
+				<div class="col s2 text-center cartsize">${c.prod_name }</div>
+				<div class="col s1 text-center cartsize">${c.des_name }</div>
+				<div class="col s1 text-center cartsize">${c.stock_color } ${c.stock_size }</div>
+				<div class="col s1 text-center cartsize">${c.cart_quantity }</div>
+				<div class="col s1 text-center cartsize">${c.prod_price }</div>
+				<div class="col s2 text-center cartsize">${c.cart_regdate }</div>
+				<div class="col s1 text-center cartsize abc"><a href="cartDelete?cart_no=${c.cart_no }"><b>취소</b></a></div>
+				</c:forEach>
 				</div>
 				
 				

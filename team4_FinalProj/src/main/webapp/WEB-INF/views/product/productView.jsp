@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -140,9 +141,26 @@ input {
 }
 
 </style>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('.small').mouseenter(function(){
+		$('#big').attr("src", $(this).attr("src"));
+	});
+	
+});
+
+function buy(){
+	$('form').attr("action", "orderprocess/flag=direct");
+	frm.submit();
+}
+ 
+function cart(){
+	$('form').attr("action", "CartInsert");
+	frm.submit();
+}
+</script>
 </head>
 <body>
-
 <div class="row container">
 
 
@@ -155,8 +173,8 @@ input {
 		
 	<div class="col s7">
 		<div class="row">
-			<div class="col s6 txtleft txtsz16"><b>편안함을 추구하는 샵</b></div>
-			<div class="col s6 txtright txtsz16"><b>이편한&nbsp; 디자이너</b></div>
+			<div class="col s6 txtleft txtsz16"><b>${dto.des_shoptitle }</b></div>
+			<div class="col s6 txtright txtsz16"><b>${dto.des_name }&nbsp; 디자이너</b></div>
 			
 
 			<!-- 여백 -->
@@ -166,7 +184,7 @@ input {
 			
 			<!-- 이미지 -->
 			<div class="col s12">
-			<img class="responsive-img box" src="./image/a.png">
+			<img id="big" class="responsive-img box" src="resources/img/${Ilist[0].pic_url }">
 			</div>
 			
 
@@ -178,19 +196,13 @@ input {
 			<!-- 이미지 선택란 -->
 			<div class="col s12">
 				<div class="row">
-					<div class="col s2 right-free">
-						<img class="responsive-img box" src="./image/a.png">
-					</div>
-					<div class="col s2 right-free">
-						<img class="responsive-img box" src="./image/a.png">
-					</div>
-					<div class="col s2 right-free">
-						<img class="responsive-img box" src="./image/a.png">
-					</div>
-					<div class="col s2 right-free">
-						<img class="responsive-img box" src="./image/a.png">
-					</div>
-					<div class="col s4"></div>
+					<c:forEach var="img" items="${Ilist }">
+						<div class="col s2 right-free">
+							<img class="responsive-img box small" src="resources/img/${img.pic_url }">
+						</div>
+					</c:forEach>
+					
+					<div class="col s2"></div>
 				</div>
 			</div>
 		</div>
@@ -210,7 +222,7 @@ input {
 			<!-- 제품 타이틀 -->
 			
 			<div class="col s12 txtleft txtsz18">
-				<b>따뜻해보이는 강아지 후드티</b>
+				<b>${dto.prod_name }</b>
 			</div>
 			
 
@@ -226,14 +238,14 @@ input {
 				
 					<!-- 상세 정보 -->
 					<div class="col s12 txtleft hi20">
-						<span>따뜻해 보이는 긴팔 후드티이다. 강아지 귀가 달려 있는 후드티는 두툼한 옷감에 기모로 되어 있어 겨울을 나기에 좋을 듯하다. <br><br> 색상 : 빨강, 검정, 파랑, 노랑, 흰색<br> 사이즈 : S, M, L, XL, XXL<br> 방어력 + 100	</span>
+						<span>${dto.prod_intro }</span>
 					</div>
 				
-			
+		
 					<!-- 디자이너 메세지 상자 -->
 					
 					<div class="col s12 txtleft">
-						<div class="box hi20"><br><br><br><br>따뜻해 보이는 긴팔 후드티 입고 겨울 나세요</div>
+						<div class="box hi20">${dto.prod_Msg }</div>
 						<p/>
 						<hr>
 					
@@ -247,24 +259,41 @@ input {
 									QUANTITY <br>
 								</div>
 								<div class="col s8 txtright sel">
-									29,000 won<br>
-									<select name="color" class="right">
-										<option value="red" selected="selected">빨강</option>
-										<option value="black" >검정</option>
-										<option value="blue" >파랑</option>
-										<option value="yellow" >노랑</option>
-										<option value="white" >하양</option>
+									${dto.prod_price} won<br>
+									<form action="#" name="frm">
+									<input type="hidden" name="prod_classf1" value="${prod_classf1}">
+									<input type="hidden" name="prod_classf2" value="${prod_classf2}">
+									<input type="hidden" name="prod_no" value="${dto.prod_no}">
+									<select name="stock_no" class="right">
+										<c:forEach var="cr" items="${Olist }" varStatus="status">
+											<c:choose>
+												<c:when test="${status.first }">
+													<option value="${cr.stock_no}"  selected="selected">${cr.stock_color} ${cr.stock_size}</option>
+												</c:when>
+												<c:otherwise>
+													<option value="${cr.stock_no}">${cr.stock_color} ${cr.stock_size}</option>
+												</c:otherwise>										
+											</c:choose>
+										</c:forEach>
 									</select>
 									<br>
-									<select name="size" class="right">
-										<option value="S" selected="selected">S</option>
-										<option value="M" >M</option>
-										<option value="L" >L</option>
-										<option value="XL" >XL</option>
-										<option value="XXL" >XXL</option>
+									<!-- 
+									<select name="stock_size" class="right">
+										<c:forEach var="sz" items="${Olist }" varStatus="status">
+											<c:choose>
+												<c:when test="${status.first }">
+													<option value="${sz.stock_size}" selected="selected">${sz.stock_size}</option>
+												</c:when>
+												<c:otherwise>
+													<option value="${sz.stock_size}">${sz.stock_size}</option>
+												</c:otherwise>										
+											</c:choose>
+										</c:forEach>
 									</select>
+									 -->
 									<br>
 									<input type="number" name="quantity" value="1" style="height: 30px; width: 40%;">
+									</form>
 								</div>
 								<div class="col s12">
 								<hr>
@@ -274,8 +303,8 @@ input {
 					</div>
 					<!-- 결제 및 장바구니 버튼 -->
 					<div class="col s12">
-						<a class="btn bt_BG">BUY IT NOW</a><br><br>
-						<a class="btn bt_BW">BUY IT NOW</a>
+						<a class="btn bt_BG" href="javascript:buy()">BUY IT NOW</a><br><br>
+						<a class="btn bt_BW" href="javascript:cart()">ADD TO CART</a>
 					</div>
 				</div>
 			</div>
