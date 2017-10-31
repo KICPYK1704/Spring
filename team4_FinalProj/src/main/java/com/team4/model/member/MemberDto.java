@@ -66,6 +66,4 @@ public class MemberDto {
 	public void setMem_regdate(String mem_regdate) {
 		this.mem_regdate = mem_regdate;
 	}
-
-	
 }
