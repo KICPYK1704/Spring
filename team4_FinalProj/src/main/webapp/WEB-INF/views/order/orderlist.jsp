@@ -73,7 +73,7 @@
 							<div class=" valign-wrapper" style="text-align: center">
 								<table width="100%" height="100%"> -->
 									<c:if test="${list.size() == 0}">
-	 									<tr><td style="text-align: center"><b>주문 내역이 없습니다.</b></td></tr>									
+	 									<tr><td style="text-align: center" colspan="7"><b>주문 내역이 없습니다.</b></td></tr>									
 									</c:if>
 									<c:forEach var="o" items="${list}">
 										<tr>
@@ -151,7 +151,7 @@
 							<div class=" valign-wrapper" style="text-align: center">
 								<table width="100%" height="100%"> -->
 									<c:if test="${otherlist.size() == 0}">
-	 									<tr><td style="text-align: center"><b>반품/교환 내역이 없습니다.</b></td></tr>									
+	 									<tr><td style="text-align: center" colspan="7"><b>반품/교환 내역이 없습니다.</b></td></tr>									
 									</c:if>
 									<c:forEach var="o" items="${otherlist}">
 										<tr>

@@ -19,7 +19,7 @@ public class CartDeleteController {
 	@Autowired
 	private CartDao cartDao;
 	
-	@RequestMapping("Cart")
+	/*@RequestMapping("Cart")
 	public void listShow(@Param("cart_no")String cart_no, HttpServletResponse response, HttpSession session){
 		
 				int b =	cartDao.cartDelete(cart_no);
@@ -52,5 +52,5 @@ public class CartDeleteController {
 =======
 				return view;
 >>>>>>> parent of f48ddaa... 10-31 15:08
-	}
+	}*/
 }
