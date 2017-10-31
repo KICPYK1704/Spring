@@ -1,4 +1,4 @@
-package com.team4.finalproj.board;
+package com.team4.finalproj.Board;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

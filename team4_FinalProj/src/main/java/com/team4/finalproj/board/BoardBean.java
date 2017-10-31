@@ -1,4 +1,4 @@
-package com.team4.finalproj.board;
+package com.team4.finalproj.Board;
 
 public class BoardBean {
 	private String board_no, board_designerid, board_writer, board_content, board_regdate, reply_count;

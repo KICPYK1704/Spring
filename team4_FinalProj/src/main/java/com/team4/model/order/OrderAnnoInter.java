@@ -33,4 +33,7 @@ public interface OrderAnnoInter {
 			+ " order_tel, order_regdate, order_pay) values(#{order_no}, #{order_stockno}, #{order_quantity},"
 			+ " #{order_memid}, #{order_name}, #{order_addr}, #{order_tel}, now(), #{order_pay})")
 	boolean insertOrder(OrderBean bean);
+	
+	@Select("select mem_email from member where mem_id = #{mem_id}")
+	String getEmail(@Param("mem_id")String mem_id);
 }

@@ -63,7 +63,14 @@ public class OrderProcessController {
 		ModelAndView view = null;
 		if(daoInter.insertOrder(bean)){
 			view = new ModelAndView("ordercomplete");
-			view.addObject("bean", bean);
+			view.addObject("obean", bean);
+			PreOrderDto dto = daoInter.selectOneProduct(bean.getOrder_stockno());
+			dto.setOrder_quantity(Integer.parseInt(bean.getOrder_quantity()));
+			if(session.getAttribute("login_mem") != null){
+				String email = (String)session.getAttribute("login_mem");				
+				view.addObject("email", email);
+			}
+			view.addObject("pdto", dto);
 		} else view = new ModelAndView("redirect:error.jsp");
 		return view;
 	}
