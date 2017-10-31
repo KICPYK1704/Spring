@@ -150,17 +150,20 @@ $(document).ready(function(){
 });
 
 function buy(){
-	$('form').attr("action", "orderprocess/flag=direct");
-	frm.submit();
+	$('#flag').val("directbuy");
+	$('form').attr("action", "orderprocess");
+	$('form').submit();
 }
  
 function cart(){
 	$('form').attr("action", "CartInsert");
-	frm.submit();
+	$('form').submit();
 }
 </script>
 </head>
 <body>
+<%@include file="../../../top.jsp"%>
+<div id="top_block">
 <div class="row container">
 
 
@@ -260,7 +263,7 @@ function cart(){
 								</div>
 								<div class="col s8 txtright sel">
 									${dto.prod_price} won<br>
-									<form action="#" name="frm">
+									<form action="" name="frm">
 									<input type="hidden" name="prod_classf1" value="${prod_classf1}">
 									<input type="hidden" name="prod_classf2" value="${prod_classf2}">
 									<input type="hidden" name="prod_no" value="${dto.prod_no}">
@@ -293,6 +296,7 @@ function cart(){
 									 -->
 									<br>
 									<input type="number" name="quantity" value="1" style="height: 30px; width: 40%;">
+									<input type="hidden" name="flag" value="" id="flag">
 									</form>
 								</div>
 								<div class="col s12">
@@ -315,6 +319,7 @@ function cart(){
 			
 		</div>
 	</div>
+</div>
 </div>
 </body>
 </html>

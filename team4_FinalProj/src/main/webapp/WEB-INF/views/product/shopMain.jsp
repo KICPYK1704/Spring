@@ -18,15 +18,17 @@
 		//$('#disp').load('board_list?des_id=' + des_id);
 		$('#disp').html("<iframe style='border: 0px;'></iframe>");
 		$('iframe').attr("src", 'board_list?des_id=' + des_id);
-		$('iframe').css('height', $('#disp').css('height'));
+		$('iframe').css('height', $('#dispall').css('height'));
 		$('iframe').css('width', $('#disp').css('width'));
 	}
 </script>
 <title>Designer Shop Main</title>
 </head>
 <body>
-	<div class="container" style="margin-top: 50px;">
-		<div class="row z-depth-4 valign-wrapper">
+<%@include file="../../../top.jsp"%>
+<div id="top_block">
+	<div class="container" style="margin-top: 20px;">
+		<div class="row z-depth-4 valign-wrapper" id="dispall">
 			<div class="col s3 blue-grey darken-4 white-text">
 				<div class="row">
 				<div class="col s12" style="margin-top :20px;">
@@ -96,5 +98,6 @@
 			</div>
 		</div>
 	</div>
+</div>
 </body>
 </html>

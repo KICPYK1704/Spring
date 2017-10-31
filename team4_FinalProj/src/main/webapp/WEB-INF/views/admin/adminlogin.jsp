@@ -12,6 +12,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%@include file="../../../top.jsp"%>
+<div id="top_block">
 <nav>
 	<div class="nav-wrapper">
 		<a href="#" class="brand-logo center">관리자 로그인</a>
@@ -33,6 +35,7 @@
 
 <input type="submit" value="로그인">
 </form>
+</div>
 </div>
 </body>
 </html>

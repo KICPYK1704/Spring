@@ -5,7 +5,7 @@
 <%@page import="com.team4.model.order.OrderDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%int sum = 0; %>
 <!DOCTYPE html>
 <html>
@@ -22,17 +22,27 @@ $(document).ready(function() {
 	$('#frm').change(function(){
 		alert("aa");
 	})
+	$('input[name=selectaddr]').change(function(){
+		if($(this).val() == 'same'){
+			$("#oname").val($("#order_name").val());
+			$("#oaddr").val($("#order_addr").val());
+			$("#otel").val($("#order_tel").val());
+		} else if($(this).val() == 'new'){
+			$("#oname").val("");
+			$("#oaddr").val("");
+			$("#otel").val("");
+		}
+	})
 });
 
 function confirm(){
-	alert('aa');
 	frm.action="orderprocess";
 	frm.method="post";
 	frm.submit();
 }
 
 function getMemInfo(){
-	
+	alert(aa);
 }
 
 function newAddr(){
@@ -61,6 +71,7 @@ function newAddr(){
 			<table class="bordered">
 				<tr><th>상품 이미지</th><th>상품 정보</th><th>판매가</th><th>수량</th><th>합계</th></tr>
 				<!-- 반복문 -->
+				<c:set var="sss" value="0" />
 				<c:choose>
 					<c:when test="${flag == 'directbuy'}">
 					<c:set var="p" value="${pdto}"/>
@@ -75,7 +86,7 @@ function newAddr(){
 							<!-- int 처리하기 -->
 						</tr>	
 						<tr height="70px" style="">
-							<td colspan="5" style="text-align: right;">상품구매금액 ${p.prod_price * p.order_quantity} + 배송비 2,500 = 합계 : ${p.prod_price * quantity + 2500}원&nbsp;&nbsp;&nbsp;&nbsp;</td>
+							<td colspan="5" style="text-align: right;">상품구매금액 ${p.prod_price * p.order_quantity} + 배송비 2,500 = 합계 : ${(p.prod_price * p.order_quantity) + 2500}원&nbsp;&nbsp;&nbsp;&nbsp;</td>
 						</tr>		
 					</c:when>
 					<c:when test="${flag == 'cartbuy' }">
@@ -89,7 +100,8 @@ function newAddr(){
 								<td>${p.prod_price * p.order_quantity}</td>
 								<!-- int 처리하기 -->
 							</tr>
-						</c:forEach>						
+							<c:set var="sss" value="${sss + (p.prod_price * p.order_quantity)}" />
+						</c:forEach>					
 					<%
 						List<PreOrderDto> list = (List<PreOrderDto>)request.getAttribute("plist");
 						sum = 0;
@@ -98,7 +110,7 @@ function newAddr(){
 						}
 					%>
 					<tr height="70px" style="">
-						<td colspan="5" style="text-align: right;">상품구매금액 <%=sum %> + 배송비 2500 = 합계 : <% out.print(sum + 2500); %>원&nbsp;&nbsp;&nbsp;&nbsp;</td>
+						<td colspan="5" style="text-align: right;">상품구매금액 <%= sum %> + 배송비 2500 = 합계 : <%= (sum + 2500) %>원&nbsp;&nbsp;&nbsp;&nbsp;</td>
 					</tr>
 					</c:when>
 				</c:choose>
@@ -115,14 +127,14 @@ function newAddr(){
 			<br><br>
 			<div class="divider"></div>
 			<br><br>
-			<blockquote><b>&nbsp;&nbsp;&nbsp;&nbsp;주문자 정보</b></blockquote><p/>
+			<blockquote><b>&nbsp;&nbsp;&nbsp;&nbsp;주문자 정보${sss}</b></blockquote><p/>
 			<table class="bordered">
 				<tr>
 					<td style="width: 250px; text-align: center">주문하시는 분</td>
-					<td><input type="text" name="order_name" value="${meminfo.mem_name}" readonly="readonly" style="width: 300px"></td>
+					<td><input type="text" name="order_name" id="order_name" value="${meminfo.mem_name}" readonly="readonly" style="width: 300px"></td>
 				</tr>
 					<% 
-					MemberDto dto = (MemberDto)request.getAttribute("meminfo");					
+					MemberDto dto = (MemberDto)request.getAttribute("meminfo");	
 					//String str = dto.getorder_
 					String tel = dto.getMem_tel();
 					String[] tels = tel.split("-");
@@ -132,7 +144,7 @@ function newAddr(){
 				<tr>
 					<td style="height: 200px"><div style="width: 100%; text-align: center">주소</div></td>
 					<td>
-						<input type="text" name="order_addr" value="${meminfo.mem_address }" readonly="readonly" style="width: 500px"><label for="addr1">기본 주소</label>
+						<input type="text" name="order_addr" id="order_addr" value="${meminfo.mem_address }" readonly="readonly" style="width: 500px"><label for="addr1">기본 주소</label>
 						
 						<!-- <input type="text" name="postnumber"value="110-801" readonly="readonly" style="width: 200px">&nbsp;&nbsp;<button class="waves-effect waves-light btn grey">검색</button><br>
 						<input type="text" name="address1" value="서울특별시 종로구 계동" readonly="readonly" style="width: 500px">&nbsp;&nbsp;기본 주소<br>
@@ -142,13 +154,14 @@ function newAddr(){
 				<tr>
 					<td style="text-align: center">전화번호</td>
 					<td>
-						<div class="row valign-wrapper" style="height: 100%">
+						<input type="text" name="order_tel" id="order_tel" value="${meminfo.mem_tel}">
+						<%-- <div class="row valign-wrapper" style="height: 100%">
 							<input type="text" name="tel1" value="<%=tels[0] %>" readonly="readonly" style="width: 70px; text-align: center; margin-top: 20px">
 							&nbsp;&nbsp;<b>-</b>&nbsp;&nbsp;
 							<input type="text" name="tel2" value="<%=tels[1] %>" readonly="readonly" style="width: 100px; text-align: center; margin-top: 20px">
 							&nbsp;&nbsp;<b>-</b>&nbsp;&nbsp;
 							<input type="text" name="tel3" value="<%=tels[2] %>" readonly="readonly" style="width: 100px; text-align: center; margin-top: 20px">
-						</div>
+						</div> --%>
 					</td>
 				</tr>
 				<tr>
@@ -159,7 +172,7 @@ function newAddr(){
 					</td>
 				</tr>
 			</table>
-			<div style="width: 100%; text-align: right; margin-top: 5px"><button class="waves-effect waves-light btn grey"><i class="material-icons left">person</i>&nbsp;&nbsp;&nbsp;수정 <i class="material-icons right">chevron_right</i></button></div>
+			<div style="width: 100%; text-align: right; margin-top: 5px"><button class="waves-effect waves-light btn grey" onclick="location.href='membermypage'"><i class="material-icons left">person</i>&nbsp;회원정보 수정 <i class="material-icons right">chevron_right</i></button></div>
 			<br><br>
 			<blockquote><b>&nbsp;&nbsp;&nbsp;&nbsp;배송 정보</b></blockquote><p/>
 			<form name="frm">
@@ -170,11 +183,10 @@ function newAddr(){
 				<tr>
 					<td style="text-align: center">배송지 선택</td>
 					<td>
-						<input class="with-gap" type="radio" name="selectaddr" value="same" onchange="javascript:getMemInfo();">
-						<label for="selectsameaddr">주문자 정보와 동일</label>&nbsp;&nbsp;
-						<input class="with-gap" type="radio" name="selectaddr" value="new" onchange="javascript:newAddr();">
-						<label for="selectnewaddr">새로운 배송지 입력</label>
-						
+						<input id="same" class="with-gap" type="radio" name="selectaddr" value="same">
+						<label for="same">주문자 정보와 동일</label>&nbsp;&nbsp;
+						<input id="new" class="with-gap" type="radio" name="selectaddr" value="new">
+						<label for="new">새로운 배송지 입력</label>
 					</td>
 				</tr>
 				<tr>
@@ -185,7 +197,7 @@ function newAddr(){
 				<tr>
 					<td style="height: 200px"><div style="width: 100%; text-align: center">주소</div></td>
 					<td>
-						<input type="text" name="order_addr" id="oaddr" readonly="readonly" style="width: 500px"><label for="addr1">기본 주소</label>
+						<input type="text" name="order_addr" id="oaddr" style="width: 500px"><label for="addr1">기본 주소</label>
 <%-- 						<input type="text" name="address" value="${meminfo.mem_address }" readonly="readonly" style="width: 500px"><label for="addr1">기본 주소</label> --%>
 						<!-- <input type="text" name="postnumber"value="110-801" readonly="readonly" style="width: 200px">&nbsp;&nbsp;<button class="waves-effect waves-light btn grey">검색</button><br>
 						<input type="text" name="address1" value="서울특별시 종로구 계동" style="width: 500px" id="addr1">
@@ -198,7 +210,7 @@ function newAddr(){
 					<td style="text-align: center">전화번호</td>
 					<td>
 						<div class="row valign-wrapper" style="height: 100%">
-							<input type="text" name="order_tel" value="${meminfo.mem_tel}">
+							<input type="text" name="order_tel" id="otel">
 							<!-- <div class="col s1 input-field center-align"  style="text-align: center; margin-top: 20px">
 								<select name="tel1">
 									<option value="02">02</option>
@@ -246,10 +258,17 @@ function newAddr(){
 			<div class="divider"></div>
 			<br><br>
 			<div style="width: 80%; margin-left: 87.62px">
+			
+				<c:set var="flag" value="${flag}" />
 				<div class="row valign-wrapper" style="height: 150px">
 					<div class="col s2" style="text-align: center; font-size:x-large;">
 						<b>상품금액</b><p>
-						<%=sum %>원
+						<c:if test="${flag eq 'cartbuy'}">
+							<%=sum %>원
+						</c:if>
+						<c:if test="${flag eq 'directbuy'}">
+							${p.prod_price * p.order_quantity}원
+						</c:if>
 					</div>
 					<div class="col s1" style="text-align: center">
 						<i class="material-icons" style="font-size: 35px">add_circle</i>
@@ -270,11 +289,21 @@ function newAddr(){
 					</div>
 					<div class="col s3" style="text-align: center; font-size:x-large;">
 						<b>총 결제 금액</b><p>
-						<%=sum + 2500 %>원
+						<c:if test="${flag eq 'cartbuy'}">
+							<%=sum + 2500 %>원
+						</c:if>
+						<c:if test="${flag eq 'directbuy'}">
+							${(p.prod_price * p.order_quantity) + 2500}원
+						</c:if>
 					</div>
 				</div>
 			</div>
-			<input type="hidden" name="order_pay" value="<%=sum + 2500 %>">
+				<c:if test="${flag eq 'cartbuy'}">
+					<input type="hidden" name="order_pay" value="<%=sum + 2500 %>">
+				</c:if>
+				<c:if test="${flag eq 'directbuy'}">
+					<input type="hidden" name="order_pay" value="${(p.prod_price * p.order_quantity) + 2500}">
+				</c:if>
 			<div class="divider"></div>
 			<br><br>
 			<div style="text-align: center; margin-right: 30px">

@@ -13,6 +13,8 @@
 <title>Event List</title>
 </head>
 <body>
+<%@include file="../../../top.jsp"%>
+<div id="top_block">
 	<h2 class="center-align">이벤트</h2>
 	<div class="container">
 		<table class="bordered centered">
@@ -58,5 +60,6 @@
 			</tr>
 		</table>
 	</div>
+</div>
 </body>
 </html>

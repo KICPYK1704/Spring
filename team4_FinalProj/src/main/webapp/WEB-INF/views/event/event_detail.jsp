@@ -15,6 +15,8 @@
 <title>Event Detail</title>
 </head>
 <body>
+<%@include file="../../../top.jsp"%>
+<div id="top_block">
 	<div class="container">
 		<div class="row">
 			<nav>
@@ -93,5 +95,6 @@
 			</ul>
 		</div>
 	</div>
+</div>
 </body>
 </html>

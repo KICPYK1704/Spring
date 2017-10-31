@@ -17,7 +17,8 @@
 </script>
 </head>
 <body>
-
+<%@include file="../../../top.jsp"%>
+<div id="top_block">
 	<div class="row">
 		<div class="col s8 offset-s2">
 			<!-- include top-->
@@ -179,5 +180,6 @@
 			<!-- include bottom-->
 		</div>
 	</div>
+</div>
 </body>
 </html>

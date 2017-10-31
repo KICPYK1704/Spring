@@ -13,6 +13,8 @@
 <title>Shopping Street Main</title>
 </head>
 <body>
+	<%@include file="../../../top.jsp"%>
+	<div id="top_block">
 	<div class="container" style="height: 700px">
 	<div class="fixed-action-btn click-to-toggle">
 		<a class="btn-floating btn-small waves-effect waves-light black">
@@ -72,6 +74,7 @@
 			</div>
 		</c:forEach>
 		<!-- ---------------------------------------------------------------------------------------------------------- -->
-	</div>	
+	</div>
+</div>
 </body>
 </html>

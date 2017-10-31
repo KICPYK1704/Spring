@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class HomeController {
 	
-	@RequestMapping(value = "go_homepage", method = RequestMethod.GET)
+	@RequestMapping(value = "go_homepage", method=RequestMethod.GET)
 	public String home() {
-		return "product/productList";
+		return "redirect:/ProductList?prod_classf1=all&prod_classf2=all";
 	}
 }

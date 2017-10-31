@@ -88,12 +88,13 @@
 
 .cartsize{
 	height: 120px;
-
+	text-align: center;
 }
 </style>
 </head>
 <body>
-
+<%@include file="../../../top.jsp"%>
+<div id="top_block">
 
 	<div class="row">
 	
@@ -151,14 +152,14 @@
 				<c:forEach var="c" items="${list }">
 				
 				<div class="col s1 text-center cartsize">${c.cart_no }</div>
-				<div class="col s2 text-center cartsize"><img class="responsive-img" src="resources/img/${c.pic_url }"></div>
+				<div class="col s2 text-center cartsize"><img style="height: 120px; width: auto;" src="resources/img/${c.pic_url }"></div>
 				<div class="col s2 text-center cartsize">${c.prod_name }</div>
 				<div class="col s1 text-center cartsize">${c.des_name }</div>
 				<div class="col s1 text-center cartsize">${c.stock_color } ${c.stock_size }</div>
 				<div class="col s1 text-center cartsize">${c.cart_quantity }</div>
 				<div class="col s1 text-center cartsize">${c.prod_price }</div>
 				<div class="col s2 text-center cartsize">${c.cart_regdate }</div>
-				<div class="col s1 text-center cartsize abc"><a href="cartDelete?cart_no=${c.cart_no }"><b>취소</b></a></div>
+				<div class="col s1 text-center cartsize"><a href="CartDelete?cart_no=${c.cart_no }"><b class="abc">취소</b></a></div>
 				</c:forEach>
 				</div>
 				
@@ -171,10 +172,11 @@
 				<!-- 주문 버튼 -->
 				
 				<div class="col s3 offset-s9 txtright">
-					<a class="btn bt_BG">BUY IT NOW</a>
+					<a class="btn bt_BG" href="orderprocess?flag=cartbuy">BUY IT NOW</a>
 				</div>
 			</div>
 		</div>
 	</div>
+</div>
 </body>
 </html>

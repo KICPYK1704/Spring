@@ -16,6 +16,8 @@
 <title>FAQ</title>
 </head>
 <body>
+<%@include file="../../../top.jsp"%>
+<div id="top_block">
 	<div class="container">
 		<h1 class="center-align">F A Q</h1>
 		<ul class="collapsible" data-collapsible="accordion">
@@ -48,5 +50,6 @@
 		    </li>
 		</ul>
 	</div>
+</div>
 </body>
 </html>

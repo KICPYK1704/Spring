@@ -1,5 +1,6 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <head>
 <style type="text/css">
 
@@ -202,17 +203,50 @@ function detailHide(elementid){
     <li>
     	<br>
     </li>
-    <li><a href="#!">이벤트</a></li>
-    <li><a href="#!">FAQ</a></li>
+    <li><a href="event_list">이벤트</a></li>
+    <li><a href="FAQ">FAQ</a></li>
     <li>
     	<br>
     	<br>
     </li>
-    <li><a>member id</a></li>
-    <li>
-    <a class="btn">my page</a>
-    <a class="btn">로그아웃</a>
-    </li>
+    <c:choose>
+    	
+    	<c:when test="${not empty sessionScope.login_mem}">
+   			<li>
+	    		<a>${sessionScope.login_mem}</a>
+	    	</li>
+		    <li>
+			    <a class="btn" href="membermypage">my page</a>
+			    <a class="btn" href="logout">로그아웃</a>
+		    </li>
+    	</c:when>
+    	<c:when test="${not empty sessionScope.login_des}">
+	    	<li>
+	    		<a>${sessionScope.login_des}</a>
+	    	</li>
+		    <li>
+			    <a class="btn" href="designermypage">my page</a>
+			    <a class="btn" href="logout">로그아웃</a>
+		    </li>
+    	</c:when>
+    	<c:when test="${not empty sessionScope.login_adm}">
+	    	<li>
+	    		<a>${sessionScope.login_adm}</a>
+	    	</li>
+		    <li>
+			    <a class="btn" href="c">my page</a>
+			    <a class="btn" href="logout">로그아웃</a>
+		    </li>
+    	</c:when>
+    	<c:otherwise>
+		    <li>
+		    	<a class="btn" href="memberlogin">회원 로그인</a>
+			    <a class="btn" href="designerlogin">디자이너 로그인</a>
+			    <a class="btn" href="adminlogin">관리자 로그인</a>
+		    </li>
+    	</c:otherwise>
+    </c:choose>
+    
   </ul>
   
 	<!-- 상세 검색 -->
@@ -279,6 +313,7 @@ function detailHide(elementid){
       <li><a class="dropdown-button black-text" href="#!" data-activates="dropdown2">제품 리스트<i class="material-icons right">arrow_drop_down</i></a></li>
     </ul>
     <ul id="nav2" class="right hide-on-med-and-down">
+      <li><a href="Cart"><i class="material-icons black-text" style="font-size: 2.2rem">shopping_cart</i></a></li>
       <li><a id="btnOne" href="#!" data-activates="searchTab"><i class="material-icons black-text" style="font-size: 2.2rem">search</i></a></li>
     </ul>
   </div>

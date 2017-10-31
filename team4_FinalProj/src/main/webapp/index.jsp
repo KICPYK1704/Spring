@@ -8,16 +8,32 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <meta content="text/html; charset=UTF-8">
-<script type="text/javascript">
-	function board_list(){
-		$('.board_list').load("board_list/shop?des_id=jinho")
-	}
-</script>
 <title>Insert title here</title>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('.carousel.carousel-slider').carousel({fullWidth: true}); 
+});
+
+</script>
+<style type="text/css">
+.title{
+	text-align: center;
+	z-index: 30;
+	font-size: 60px;
+	position: fixed;
+	display: inline-block;
+	transform: translate(260%,700%);
+}
+
+</style>
 </head>
 <body>
-	<script type="text/javascript">
-		location.href="go_homepage";
-	</script>
+   <div class="carousel carousel-slider">
+   <div class="title white-text">환영합니다</div>
+    <a class="carousel-item" href="go_homepage"><img src="resources/img/옷1.jpg"></a>
+    <a class="carousel-item" href="go_homepage"><img src="resources/img/벨트.jpg"></a>
+    <a class="carousel-item" href="go_homepage"><img src="resources/img/옷1.jpg"></a>
+    <a class="carousel-item" href="go_homepage"><img src="resources/img/벨트.jpg"></a>
+  </div> 
 </body>
 </html>

@@ -26,35 +26,32 @@ public class OrderProcessController {
 	public ModelAndView orderProcess(HttpServletRequest request, HttpServletResponse response, HttpSession session){
 		ModelAndView view = new ModelAndView("order/orderprocess");
 		
-		// 상품 상세에서 바로 결제하기 눌렀을 때
-		//String flag = request.getParameter("flag");
-		String flag = "directbuy";
-		//String stock_no = request.getParameter("stock_no");
-		String stock_no = "3";
-		//String q = request.getParameter("quantity");
+		// �긽�뭹 �긽�꽭�뿉�꽌 諛붾줈 寃곗젣�븯湲� �닃���쓣 �븣
+		String flag = request.getParameter("flag");
+		String stock_no = request.getParameter("stock_no");
+		String q = request.getParameter("quantity");
 		
-		// 장바구니에서 결제하기 눌렀을 때 (List<ProductBean>으로 넘어옴)
-		// String flag = "cartbuy";
-		//List<ProductBean> list = request.getAttribute("list");
+		//System.out.println("aaaa: " + flag + stock_no + q);
+		// �옣諛붽뎄�땲�뿉�꽌 寃곗젣�븯湲� �닃���쓣 �븣 (List<ProductBean>�쑝濡� �꽆�뼱�샂)
 
 		request.setAttribute("flag", flag);
-		session.setAttribute("login_mem", "suik");
 		
-		// 주문할 내역 리스트
+		// 二쇰Ц�븷 �궡�뿭 由ъ뒪�듃
 		PreOrderDto dto = new PreOrderDto();
 		List<PreOrderDto> plist = new ArrayList<PreOrderDto>();
 		if(flag.equals("directbuy")){
 			dto = daoInter.selectOneProduct(stock_no);
-			dto.setOrder_quantity(Integer.parseInt(request.getParameter("quantity")));
+			dto.setOrder_quantity(Integer.parseInt(q));
 			view.addObject("pdto", dto);
 		} else if(flag.equals("cartbuy")){
 			plist = daoInter.selectCartProduct((String)session.getAttribute("login_mem"));
 			view.addObject("plist", plist);
 		}
 		
-		// 주문자 정보
+		// 二쇰Ц�옄 �젙蹂�
 		MemberDto dto1 = daoInter.selectMemberInfo((String)session.getAttribute("login_mem"));
 		view.addObject("meminfo", dto1);	
+		System.out.println("sadf" + dto1.getMem_id());
 		return view;
 	}
 	

@@ -24,6 +24,8 @@ window.onload = function(){
 -->
 
 <body>
+<%@include file="../../../top.jsp"%>
+<div id="top_block">
 <nav>
 	<div class="nav-wrapper">
 		<a href="#" class="brand-logo center">회원 가입</a>
@@ -77,6 +79,6 @@ window.onload = function(){
  
  </form> 
 </div>
-
+</div>
 </body>
 </html>

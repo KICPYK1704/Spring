@@ -79,7 +79,7 @@ transition: opacity .45s cubic-bezier(.25,.46,.45,.94),margin-top .45s cubic-bez
 <!-- parallax 이미지 -->
 
 <div class="parallax-container">
-    <div class="parallax"><img src="resources/img/sky.JPG"></div>
+    <div class="parallax"><img src="resources/img/intro.jpg"></div>
 </div>
 
 

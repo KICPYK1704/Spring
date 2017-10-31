@@ -18,6 +18,8 @@
 <title>Event Create</title>
 </head>
 <body>
+<%@include file="../../../top.jsp"%>
+<div id="top_block">
 	<div class="container">
 		<div class="row">
 			<nav>
@@ -74,5 +76,6 @@
 			<!-- hidden tag로 id 넘길건지 결정필요 -->
 		</div>
 	</div>
+</div>
 </body>
 </html>
