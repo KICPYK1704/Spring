@@ -1,5 +1,6 @@
 package com.team4.model.product;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -67,4 +68,13 @@ public class ProductDao implements ProductDaoInter {
 		return b;
 	}
 	
+	@Override
+	public List<ShopStDto> getShopSt() {
+		List<ShopStDto> list = annoInter.getShopSt();
+		for(int i = 0; i < list.size(); i++){
+			String[] pic = annoInter.getLatestAddition(list.get(i).getDes_id());
+			list.get(i).setPic(pic);
+		}
+		return list;
+	}
 }

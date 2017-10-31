@@ -13,4 +13,5 @@ public interface ProductDaoInter {
 	List<ProductMgtDto> getProdMgtList(String des_id);
 	List<StockDto> getStockList(String prod_no);
 	boolean insertStock(StockBean stockBean);
+	List<ShopStDto> getShopSt();
 }

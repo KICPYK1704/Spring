@@ -34,4 +34,12 @@ public interface ProductAnnoInter {
 	
 	@Insert("insert into stock values(#{stock_no}, #{stock_prodno}, #{stock_size}, #{stock_color}, #{stock_quantity})")
 	boolean insertStock(StockBean stockBean);
+	
+	//ShoppingSt
+	@Select("select pic_url from (select p.pic_url, ROW_NUMBER() OVER(ORDER BY prod_regdate DESC) as rn from productpicture as p inner join product as pd on prod_no = pic_prodno where prod_designerid = #{des_id}) as shopSt where rn <= 3")
+	String[] getLatestAddition(String des_id);
+	
+	@Select("select des_id, des_shoptitle, des_name, des_shopintro from designer")
+	List<ShopStDto> getShopSt();
+	
 }

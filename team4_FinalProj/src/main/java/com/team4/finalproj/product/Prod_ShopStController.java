@@ -16,6 +16,7 @@ public class Prod_ShopStController {
 	@RequestMapping(value="shoppingStreet", method=RequestMethod.GET)
 	public ModelAndView shoppingStreet(){
 		ModelAndView mv = new ModelAndView("product/shopStMain");
+		mv.addObject("shopst_list", daoInter.getShopSt());
 		return mv;
 	}
 }
