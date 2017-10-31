@@ -22,6 +22,7 @@ public class MemberDao implements MemberDaoInter {
 	public boolean loginMember(MemberBean bean){
 		boolean b = false;
 		
+		
 		MemberDto dto = annoInter.loginMember(bean);
 		System.out.println(bean.getMem_id());
 		if(dto != null)
@@ -31,4 +32,43 @@ public class MemberDao implements MemberDaoInter {
 		return b;
 	}
 	
+	
+	public MemberDto getMemberDataAll(String mem_id){
+		
+		
+		MemberDto dto = null;
+		if(mem_id != null){
+			dto = new MemberDto();
+			dto = annoInter.getMemberDataAll(mem_id);
+		}
+		
+		return dto;
+	}
+	
+	
+	public boolean updateMember(MemberBean bean) {
+		boolean b= false;
+		
+		int a = annoInter.updateMember(bean);
+		System.out.println(a);
+		if(a > 0) b = true;	
+		return b;
+	}
+	
+	public boolean deleteMember(String mem_id) {
+		boolean b= false;
+		
+		int a = annoInter.deleteMember(mem_id);
+		System.out.println(a);
+		if(a > 0) b = true;	
+		return b;
+	}
+	
 }
+
+
+
+
+
+
+

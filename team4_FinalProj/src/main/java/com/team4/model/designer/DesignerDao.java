@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.team4.finalproj.designer.DesignerBean;
+import com.team4.finalproj.member.MemberBean;
+import com.team4.model.member.MemberDto;
 
 @Repository
 public class DesignerDao implements DesignerDaoInter {
@@ -29,5 +31,27 @@ public class DesignerDao implements DesignerDaoInter {
 		
 		return b;
 	}
+	
+public DesignerDto getDesignerDataAll(String des_id){
+		
+		
+		DesignerDto dto = null;
+		if(des_id != null){
+			dto = new DesignerDto();
+			dto = annoInter.getDesignerDataAll(des_id);
+		}
+		
+		return dto;
+	}
+
+public boolean updateDesigner(DesignerBean bean) {
+	boolean b= false;
+	
+	int a = annoInter.updateDesigner(bean);
+	System.out.println(a);
+	if(a > 0) b = true;	
+	return b;
+}
+
 	
 }

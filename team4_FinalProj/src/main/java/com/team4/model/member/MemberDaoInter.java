@@ -6,4 +6,10 @@ public interface MemberDaoInter {
 	boolean insertData(MemberBean bean);
 	
 	 boolean loginMember(MemberBean bean);
+	 
+	 MemberDto getMemberDataAll(String mem_id);
+ 
+	 boolean updateMember(MemberBean bean);
+	 
+	 boolean deleteMember(String mem_id);
 }

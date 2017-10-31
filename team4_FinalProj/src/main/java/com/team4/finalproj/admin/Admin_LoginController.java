@@ -1,5 +1,7 @@
 package com.team4.finalproj.admin;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,10 +20,11 @@ public class Admin_LoginController {
 	}
 	
 	@RequestMapping(value="adminlogin", method=RequestMethod.POST)
-	public String submit2(AdminBean bean){
+	public String submit2(HttpSession session, AdminBean bean){
 		boolean b = adminDaoInter.loginAdmin(bean);		
 	
 		if(b){
+			session.setAttribute("login_", bean.getMem_id());
 			return "congratulation";			
 		}else{
 			return "redirect:/loginerror.jsp";
