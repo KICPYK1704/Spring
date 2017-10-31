@@ -1,5 +1,7 @@
 package com.team4.model.admin;
 
-public interface AdminDaoInter {
+import com.team4.finalproj.admin.AdminBean;
 
+public interface AdminDaoInter {
+	boolean loginAdmin(AdminBean bean);
 }

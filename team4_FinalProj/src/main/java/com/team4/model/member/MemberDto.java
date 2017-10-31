@@ -1,4 +1,4 @@
-package com.team4.model.member;
+ package com.team4.model.member;
 
 public class MemberDto {
 	private String mem_id, mem_pwd, mem_name, mem_tel, mem_email, mem_address, mem_fandesignerno, mem_regdate;
