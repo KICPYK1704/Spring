@@ -29,9 +29,7 @@
 <title>방명록</title>
 </head>
 <body>
-	<%@include file="../../../top.jsp"%>
-	<div id="top_block" >
-	<h2 class="center-align">방명록</h2>
+	<h4 class="center-align">방명록</h4>
 	<div class="container">
 		<!-- 등록 ------------------------------------------------------------------------------------ -->
 		<div class="row">
@@ -49,7 +47,7 @@
 						<div class="input-field col s12">
 				        	<textarea id="textarea1" class="materialize-textarea" name="board_content" placeholder="방명록 작성"></textarea>
 				        </div>
-						<div class="input-field col s2 offset-s10 right-align">
+						<div class="input-field col s4 offset-s8 right-align">
 							<div class="waves-effect waves-light btn" id="board_insertsubmit">
 								<span>등록</span>
 				        	</div>
@@ -92,7 +90,7 @@
 								<input id="new_comment" type="text" class="validate" placeholder="댓글을 입력하세요">
 	         					<label for="new_comment">new comment</label>
 							</div>
-							<div class="input-field col s1 right-align">
+							<div class="input-field col s1">
 								<div class="waves-effect waves-light btn-floating">
 									<i class="material-icons">add</i>
 					        		<input type="submit">
@@ -118,14 +116,6 @@
 		</div>
 		</c:forEach>
 		<!-- 보여주기 끝 ------------------------------------------------------------------------------------ -->
-	</div>
-	
-	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 	</div>
 </body>
 </html>

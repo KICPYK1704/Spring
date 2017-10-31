@@ -16,15 +16,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	index.jsp
-	<a href="board_list?des_id=jinho">방명록 메인(main)</a>
-	<a href="event_list">event 메인</a>
-	<a href="product_insert">insert prod</a>
-	<a href="product_Mgt">product_Mgt</a>
-	<a href="shoppingStreet">shoppingStreet</a>
-	<!-- 
-	<a href="javascript:board_list/shop?des_id=jinho">방명록 메인(shop)</a>
-	<div class="board_list"></div>
-	 -->
+	<script type="text/javascript">
+		location.href="go_homepage";
+	</script>
 </body>
 </html>

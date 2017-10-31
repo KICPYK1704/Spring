@@ -31,7 +31,7 @@
 				<div class="row">
 				<div class="col s12" style="margin-top :20px;">
 					<img src="./resources/img/ex.jpg" class="circle col s3">
-					<div class="col s7 flow-text">홍길동</div>
+					<div class="col s7 flow-text">${param.des_id}</div>
 					<div class="col s2">
 						<i class="material-icons flow-text small">favorite</i>
 					</div>
