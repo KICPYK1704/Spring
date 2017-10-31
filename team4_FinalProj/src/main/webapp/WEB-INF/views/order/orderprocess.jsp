@@ -162,9 +162,10 @@ function newAddr(){
 			<div style="width: 100%; text-align: right; margin-top: 5px"><button class="waves-effect waves-light btn grey"><i class="material-icons left">person</i>&nbsp;&nbsp;&nbsp;수정 <i class="material-icons right">chevron_right</i></button></div>
 			<br><br>
 			<blockquote><b>&nbsp;&nbsp;&nbsp;&nbsp;배송 정보</b></blockquote><p/>
-			
 			<form name="frm">
 			<input type="hidden" name="order_memid" value="${meminfo.mem_id}">
+			<input type="hidden" name="order_stockno" value="${pdto.stock_no}">
+			<input type="hidden" name="order_quantity" value="${pdto.order_quantity}">
 			<table class="bordered">
 				<tr>
 					<td style="text-align: center">배송지 선택</td>
@@ -197,7 +198,8 @@ function newAddr(){
 					<td style="text-align: center">전화번호</td>
 					<td>
 						<div class="row valign-wrapper" style="height: 100%">
-							<div class="col s1 input-field center-align"  style="text-align: center; margin-top: 20px">
+							<input type="text" name="order_tel" value="${meminfo.mem_tel}">
+							<!-- <div class="col s1 input-field center-align"  style="text-align: center; margin-top: 20px">
 								<select name="tel1">
 									<option value="02">02</option>
 									<option value="031">031</option>
@@ -212,7 +214,7 @@ function newAddr(){
 								&nbsp;&nbsp;<b>-</b>&nbsp;&nbsp;
 								<input type="text" name="tel3" value="7369" id="otel3" style="width: 100px; text-align: center; margin-top: 20px">
 								<input type="hidden" name="order_tel">
-							</div>
+							</div> -->
 						</div>
 					</td>
 				</tr>

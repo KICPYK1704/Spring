@@ -2,9 +2,11 @@ package com.team4.model.order;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
+import com.team4.finalproj.order.OrderBean;
 import com.team4.model.member.MemberDto;
 
 public interface OrderAnnoInter {
@@ -26,4 +28,9 @@ public interface OrderAnnoInter {
 	
 	@Select("select * from member where mem_id = #{mem_id}")
 	MemberDto selectMemberInfo(@Param("mem_id")String mem_id);
+	
+	@Insert("insert into orderlist(order_no, order_stockno, order_quantity, order_memid, order_name, order_addr,"
+			+ " order_tel, order_regdate, order_pay) values(#{order_no}, #{order_stockno}, #{order_quantity},"
+			+ " #{order_memid}, #{order_name}, #{order_addr}, #{order_tel}, now(), #{order_pay})")
+	boolean insertOrder(OrderBean bean);
 }
