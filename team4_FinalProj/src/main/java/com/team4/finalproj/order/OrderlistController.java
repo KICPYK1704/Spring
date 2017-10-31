@@ -19,12 +19,12 @@ public class OrderlistController {
 	private OrderDaoInter daoInter;
 	@RequestMapping("orderlist")
 	public ModelAndView order(HttpServletRequest request){
-		request.setAttribute("idKey", "abc");
-		List<OrderDto> imsi = daoInter.selectOrderAll((String)request.getAttribute("idKey"));
+		request.setAttribute("login_mem", "suik");
+		List<OrderDto> imsi = daoInter.selectOrderAll("suik");
 		List<OrderDto> list = new ArrayList<OrderDto>();
 		List<OrderDto> otherlist = new ArrayList<OrderDto>();
 		for(OrderDto o : imsi){
-			if(o.getOrder_state().equals("반품 회수중") || o.getOrder_state().equals("교환 대기중") || o.getOrder_state().equals("교환 배송중") || o.getOrder_state().equals("반품 완료") || o.getOrder_state().equals("교환 완료")){
+			if(o.getOrder_state().equals("반품 접수") || o.getOrder_state().equals("반품 회수중") || o.getOrder_state().equals("교환 접수") || o.getOrder_state().equals("교환 배송중") || o.getOrder_state().equals("반품 완료") || o.getOrder_state().equals("교환 완료")){
 				otherlist.add(o);
 			} else list.add(o);
 		}

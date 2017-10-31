@@ -48,8 +48,8 @@
 										<b>할인 금액</b>							
 									</div>
 									<div class="col s8" style="font-size: 13px; margin-top: 12px">
-										28,300 <b>원</b>	<br>						
-										25,800 <b>원</b>	<br>						
+										38,500 <b>원</b>	<br>						
+										36000 <b>원</b>	<br>						
 										2,500 <b>원</b>	<br>						
 										0 <b>원</b>						
 									</div>
@@ -64,9 +64,9 @@
 									</div>
 									<div class="col s8" style="font-size: 13px; margin-top: 12px">
 										1<br>						
-										이상명 <b>님</b>	<br>						
-										2017-10-26 18:14:36<br>						
-										<b>28,300 원</b>						
+										김수익 <b>님</b>	<br>						
+										2017-10-31 15:14:36<br>						
+										<b>38,500 원</b>						
 									</div>
 								</div>
 							</div>
@@ -84,15 +84,15 @@
 				<!-- 주문내역 반복문 -->
 				<tr>
 					<td>1</td>
-					<td><a href="#!">취향저격 1+1아이템ver.베이직 카라 셔츠+블랑 니트 베스트 ★300개 한정수량★</a></td>
-					<td>02블랙/Free 사이즈/05화이트/L 사이즈</td>
-					<td>25,800원</td>
-					<td>1</td>
-					<td>25,800원</td>
+					<td><a href="#!">멋진 바지</a></td>
+					<td>그린 / L</td>
+					<td>12000원</td>
+					<td>3</td>
+					<td>36000원</td>
 				</tr>
 				<tr> 
 					<td colspan="6" style="text-align: right">
-						상품구매금액 25,800 + 배송비 2,500 = 합계 : <b style="font-size: ">28,300</b>원
+						상품구매금액 36000 + 배송비 2,500 = 합계 : <b style="font-size: ">38,500</b>원
 					</td>
 				</tr>
 			</table>

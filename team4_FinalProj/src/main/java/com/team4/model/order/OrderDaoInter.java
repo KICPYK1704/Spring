@@ -6,7 +6,7 @@ import com.team4.model.member.MemberDto;
 
 public interface OrderDaoInter {
 	List<OrderDto> selectOrderAll(String mem_id);
-	List<PreOrderDto> selectOneProduct(String stock_no);
+	PreOrderDto selectOneProduct(String stock_no);
 	List<PreOrderDto> selectCartProduct(String mem_id);
 	MemberDto selectMemberInfo(String mem_id);
 }

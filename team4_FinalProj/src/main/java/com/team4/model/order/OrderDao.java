@@ -14,12 +14,21 @@ public class OrderDao implements OrderDaoInter {
 	
 	@Override
 	public List<OrderDto> selectOrderAll(String mem_id) {
-		return annoInter.selectOrderAll(mem_id);
+		List<OrderDto> list = annoInter.selectOrderAll(mem_id);
+		for(OrderDto o : list){
+			List<String> imsi = annoInter.getProductPic(o.getProd_no());
+			if(imsi != null) o.setPic_url(imsi.get(0));
+		}
+		return list;
 	}
 	
 	@Override
-	public List<PreOrderDto> selectOneProduct(String stock_no) {
-		return annoInter.selectOneProduct(stock_no);
+	public PreOrderDto selectOneProduct(String stock_no) {
+		System.out.println(stock_no);
+		PreOrderDto dto = annoInter.selectOneProduct(stock_no);
+		List<String> imsi = annoInter.getProductPic(dto.getProd_no());
+		if(imsi != null) dto.setPic_url(imsi.get(0));
+		return dto;
 	}
 	
 	@Override

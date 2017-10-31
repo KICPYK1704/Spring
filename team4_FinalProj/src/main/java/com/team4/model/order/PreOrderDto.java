@@ -1,8 +1,17 @@
 package com.team4.model.order;
 
 public class PreOrderDto {
-	private String prod_name, stock_color, stock_size, order_quantity, pic_url;
-	private int prod_price;
+	private String prod_name, stock_color, stock_size, pic_url, prod_no;
+	
+	public String getProd_no() {
+		return prod_no;
+	}
+
+	public void setProd_no(String prod_no) {
+		this.prod_no = prod_no;
+	}
+
+	private int prod_price, order_quantity;
 
 	public String getPic_url() {
 		return pic_url;
@@ -44,11 +53,11 @@ public class PreOrderDto {
 		this.prod_price = prod_price;
 	}
 
-	public String getOrder_quantity() {
+	public int getOrder_quantity() {
 		return order_quantity;
 	}
 
-	public void setOrder_quantity(String order_quantity) {
+	public void setOrder_quantity(int order_quantity) {
 		this.order_quantity = order_quantity;
 	}
 

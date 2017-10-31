@@ -66,30 +66,38 @@
 				&nbsp;&nbsp;&nbsp;&nbsp;<p><b>주문 상품 정보</b></p>
 				<div class="divider"></div>
 				<table class="bordered">
-					<tr><th style="text-align: center">주문일자<br>[주문번호]</th><th style="text-align: center">이미지</th><th style="text-align: center">상품정보</th><th style="text-align: center">수량</th><th style="text-align: center">상품구매금액</th><th style="text-align: center">처리상태</th><th style="text-align: center">취소/교환/반품</th></tr>
-					<tr>
+					<tr><th style="text-align: center; width: 90px">주문일자<br>[주문번호]</th><th style="text-align: center; width: 200px">이미지</th><th style="text-align: center; width: 500px">상품정보</th><th style="text-align: center; width: 60px">수량</th><th style="text-align: center; width: 80px">판매가</th><th style="text-align: center; width: 120px">처리상태</th><th style="text-align: center">취소/교환/반품</th></tr>
+<!-- 					<tr>
 						<td height="150" colspan="7" width="100%">
 							<div class=" valign-wrapper" style="text-align: center">
-								<table width="100%" height="100%">
+								<table width="100%" height="100%"> -->
 									<c:if test="${list.size() == 0}">
 	 									<tr><td style="text-align: center"><b>주문 내역이 없습니다.</b></td></tr>									
 									</c:if>
 									<c:forEach var="o" items="${list}">
 										<tr>
-											<td>${o.order_regdate}<br>${o.order_no }</td>
-											<td><img src="resources/img/product1.gif"></td>
-											<td>상품 이름 <br>상품 옵션(sql join)</td>
-											<td>${o.order_quantity }</td>
-											<td>${o.order_pay }</td>
-											<td>${o.order_state }</td>
-											<td><a href="ordercancel">취소</a>&nbsp;<a href="orderchange">교환</a>&nbsp;<a href="orderreturn">반품</a></td>
+											<%-- <td style="width: 40px">${o.order_regdate}<br>${o.order_no }</td>
+											<td style="width: 100px"><img src="resources/img/${o.pic_url}"></td>
+											<td style="width: 300px">${o.prod_name }<br>[${o.stock_color} / ${o.stock_size}]</td>
+											<td style="width: 40px">${o.order_quantity}</td>
+											<td style="width: 50px">${o.order_pay}</td>
+											<td style="width: 60px">${o.order_state}</td>
+											<td><a href="ordercancel">취소</a>&nbsp;<a href="orderchange">교환</a>&nbsp;<a href="orderreturn">반품</a></td> --%>
+											
+											<td style="text-align: center">${o.order_regdate}<br>${o.order_no }</td>
+											<td><img src="resources/img/${o.pic_url}"></td>
+											<td>${o.prod_name }<br>[${o.stock_color} / ${o.stock_size}]</td>
+											<td style="text-align: center">${o.order_quantity}</td>
+											<td style="text-align: center">${o.order_pay}</td>
+											<td style="text-align: center">${o.order_state}</td>
+											<td style="text-align: center"><a href="ordercancel">취소</a>&nbsp;/&nbsp;<a href="orderchange">교환</a>&nbsp;/&nbsp;<a href="orderreturn">반품</a></td>
 										</tr>
 									</c:forEach>									
-								</table>
+<!-- 								</table>
 								
 							</div>
 						</td>
-					</tr>
+					</tr> -->
 				</table>
 				
 				<div style="text-align: center">
@@ -136,28 +144,28 @@
 				&nbsp;&nbsp;&nbsp;&nbsp;<p><b>반품/교환 내역 정보</b></p>
 				<div class="divider"></div>
 				<table class="bordered">
-					<tr><th style="text-align: center">주문일자<br>[주문번호]</th><th style="text-align: center">상품정보</th><th style="text-align: center">수량</th><th style="text-align: center">상품구매금액</th><th style="text-align: center">처리상태</th></tr>
-					<tr>
+					<tr><th style="text-align: center; width: 100px">주문일자<br>[주문번호]</th><th style="text-align: center; width: 500px">상품정보</th><th style="text-align: center; width: 100px">수량</th><th style="text-align: center; width: 130px">상품구매금액</th><th style="text-align: center">처리상태</th></tr>
+					<!-- <tr>
 						<td height="150" colspan="7" width="100%">
 							<div class=" valign-wrapper" style="text-align: center">
-								<table width="100%" height="100%">
+								<table width="100%" height="100%"> -->
 									<c:if test="${otherlist.size() == 0}">
 	 									<tr><td style="text-align: center"><b>반품/교환 내역이 없습니다.</b></td></tr>									
 									</c:if>
 									<c:forEach var="o" items="${otherlist}">
 										<tr>
-											<td>${o.order_regdate}<br>${o.order_no }</td>
-											<td>상품 이름 <br>상품 옵션(sql join)</td>
+											<td>${o.order_regdate}<br>${o.order_no}</td>
+											<td>${o.prod_name}<br>${o.stock_color} / ${o.stock_size }</td>
 											<td>${o.order_quantity }</td>
 											<td>${o.order_pay }</td>
 											<td>${o.order_state }</td>
 										</tr>
 									</c:forEach>
-								</table>
+								<!-- </table>
 								
 							</div>
 						</td>
-					</tr>
+					</tr> -->
 				</table>
 				
 				<div style="text-align: center">
