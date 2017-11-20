@@ -19,7 +19,7 @@ public class CartDeleteController {
 	@Autowired
 	private CartDao cartDao;
 	
-	/*@RequestMapping("Cart")
+	@RequestMapping("CartDelete")
 	public void listShow(@Param("cart_no")String cart_no, HttpServletResponse response, HttpSession session){
 		
 				int b =	cartDao.cartDelete(cart_no);
@@ -28,19 +28,11 @@ public class CartDeleteController {
 						PrintWriter out = response.getWriter();
 						if(b>0){
 							out.println("<script>alert('삭제되었습니다.')</script>");
-<<<<<<< HEAD
 							out.println("<script>location.href='Cart'</script>");
 							out.flush();
 						}else{
 							out.println("<script>alert('오류')</script>");
 							out.println("<script>location.href='Cart'</script>");
-=======
-							out.println("<script>location.href='ProductView?prod_no=" + prod_no + "&prod_classf1=" + prod_classf1 + "&prod_classf2=" + prod_classf2 + "'</script>");
-							out.flush();
-						}else{
-							out.println("<script>alert('오류')</script>");
-							out.println("<script>location.href='ProductView?prod_no=" + prod_no + "&prod_classf1=" + prod_classf1 + "&prod_classf2=" + prod_classf2 + "'</script>");
->>>>>>> parent of f48ddaa... 10-31 15:08
 							out.flush();
 						}
 						
@@ -48,9 +40,5 @@ public class CartDeleteController {
 						// TODO: handle exception
 				}
 		
-<<<<<<< HEAD
-=======
-				return view;
->>>>>>> parent of f48ddaa... 10-31 15:08
-	}*/
+	}
 }

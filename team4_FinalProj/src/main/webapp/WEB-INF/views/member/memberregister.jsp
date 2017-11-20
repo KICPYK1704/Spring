@@ -24,7 +24,7 @@ window.onload = function(){
 -->
 
 <body>
-<%@include file="../../../top.jsp"%>
+
 <div id="top_block">
 <nav>
 	<div class="nav-wrapper">
@@ -73,10 +73,10 @@ window.onload = function(){
       <input id="icon_address" type="text" name="mem_address" class="validate">
       <label for="icon_address">address</label>
     </div>
-    
-    <input class="waves-effect waves-light btn" type="submit" value="회원가입" id="btnRegister">
-    <input class="waves-effect waves-light btn" type="reset" value="초기화">
- 
+    <div class="input-field col s6 offset-s3">
+	    <input class="waves-effect waves-light btn" type="submit" value="회원가입" id="btnRegister">
+	    <input class="waves-effect waves-light btn" type="reset" value="초기화">
+ 	</div>
  </form> 
 </div>
 </div>

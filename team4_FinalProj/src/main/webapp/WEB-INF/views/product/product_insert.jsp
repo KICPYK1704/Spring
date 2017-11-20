@@ -98,7 +98,7 @@
 </style>
 </head>
 <body>
-<%@include file="../../../top.jsp"%>
+
 <div id="top_block">
 <sform:form id="insertform" enctype="multipart/form-data" modelAttribute="productBean">
 <div class="container">

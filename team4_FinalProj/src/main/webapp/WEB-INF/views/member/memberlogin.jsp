@@ -12,7 +12,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%@include file="../../../top.jsp"%>
+
 <div id="top_block">
 <nav>
 	<div class="nav-wrapper">

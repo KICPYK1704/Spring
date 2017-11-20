@@ -10,6 +10,9 @@
 <br>
 	<a href="orderlist">주문내역 보기~</a><br>
 	<a href="orderprocess?quantity=3">구매하기</a>
-	<a href="ordercomplete">결제 완료</a>
-	</body>
+	<a href="product_Mgt">상품관리</a>
+	<a href="designermypage">회원등록</a>
+	<a href="membermypage">회원등록</a>
+	
+		</body>
 </html>

@@ -12,7 +12,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%@include file="../../../top.jsp"%>
 <div id="top_block">
 <nav>
 	<div class="nav-wrapper">
@@ -29,7 +28,7 @@
 
 <div class="input-field col s6 offset-s3">
 <i class="material-icons prefix">vpn_key</i>
-비밀번호 : <input id="icon_password" type="text" name="des_pwd" value="${dto.des_pwd}" class="validate">
+<input id="icon_password" type="text" name="des_pwd" value="${dto.des_pwd}" class="validate">
 </div>
 
 <div class="input-field col s6 offset-s3">
@@ -74,6 +73,7 @@
 
 <input type="submit" value="수정하기"><br><br><br>
 </form>
+</div>
 </div>
 </body>
 </html>

@@ -12,8 +12,8 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-<%-- <%@include file="../../../top.jsp"%> --%>
-<!-- <div id="top_block"> -->
+<%@include file="../../../top.jsp"%>
+<div id="top_block">
 	<div class="row">
 		<div class="col s8 offset-s2">
 			<!-- include top-->
@@ -26,7 +26,7 @@
 						결제가 성공적으로 완료되었습니다. 저희 쇼핑몰을 이용해 주셔서 대단히 감사합니다.
 					</li>
 					<li>
-						상세 배송 상태는 이메일 lsmy7369@naver.com<%-- ${email} --%>로 확인하실 수 있습니다.
+						상세 배송 상태는 이메일 ${email}로 확인하실 수 있습니다.
 					</li>
 					<li>
 						결제 완료된 상품내역은 아래에서 확인하시기 바랍니다.
@@ -51,12 +51,12 @@
 										<b>할인 금액</b>							
 									</div>
 									<div class="col s8" style="font-size: 13px; margin-top: 12px">
-										<%-- ${obean.order_pay} --%>28,300 <b>원</b>	<br>					
-										<%-- ${pdto.prod_price * pdto.order_quantity } --%>25,800 <b>원</b>	<br>	
-										<%-- <c:if test="${pdto.prod_price * pdto.order_quantity > 50000 }">
+										${obean.order_pay} <b>원</b>	<br>					
+										${pdto.prod_price * pdto.order_quantity } <b>원</b>	<br>	
+										<c:if test="${pdto.prod_price * pdto.order_quantity > 50000 }">
 										250																
-										</c:if> --%>					
-										2500 <b>원</b>	<br>
+										</c:if>					
+										0 <b>원</b>	<br>
 										0 <b>원</b>						
 									</div>
 								</div>
@@ -69,10 +69,10 @@
 										<b>주문 금액</b>							
 									</div>
 									<div class="col s8" style="font-size: 13px; margin-top: 12px">
-										<%-- ${obean.order_no} --%>1<br>						
-										<%-- ${obean.order_name} --%> 김수익 <b>님</b>	<br>						
-										<%-- ${obean.order_regdate } --%>2017-10-31<br>						
-										<b><%-- ${obean.order_pay } --%>28,300 원</b>						
+										${obean.order_no}<br>						
+										${obean.order_name } <b>님</b>	<br>						
+										${obean.order_regdate }<br>						
+										<b>${obean.order_pay } 원</b>						
 									</div>
 								</div>
 							</div>
@@ -98,7 +98,7 @@
 				</tr>
 				<tr> 
 					<td colspan="6" style="text-align: right">
-						상품구매금액 ${pdto.prod_price * pdto.order_quantity} + 배송비 2,500 = 합계 : <b style="font-size: ">${obean.order_pay}</b>원
+						상품구매금액 ${pdto.prod_price 8 pdto.order_quantity} + 배송비 2,500 = 합계 : <b style="font-size: ">${obean.order_pay}</b>원
 					</td>
 				</tr>
 			</table>
@@ -110,6 +110,6 @@
 			
 		</div>
 	</div>
-<!-- </div> -->
+</div>
 </body>
 </html>

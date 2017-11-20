@@ -78,9 +78,10 @@ window.onload = function(){
       <label for="icon_shoptitle">account</label>
     </div>
     
-    <input class="waves-effect waves-light btn" type="submit" value="회원가입" id="btnRegister">
-    <input class="waves-effect waves-light btn" type="reset" value="초기화">
- 
+    <div class="input-field col s6 offset-s3">
+	    <input class="waves-effect waves-light btn" type="submit" value="회원가입" id="btnRegister">
+	    <input class="waves-effect waves-light btn" type="reset" value="초기화">
+ 	</div>
  </form> 
 </div>
 
