@@ -43,6 +43,7 @@ public interface ProductAnnoInter {
 	@Select("select des_id, des_shoptitle, des_name, des_shopintro from designer")
 	List<ShopStDto> getShopSt();
 	
+	//ProductList
 	@Select("select prod_no, prod_name, des_name, des_shoptitle, prod_price, (select pic_url from productpicture where pic_no = (select min(pic_no) from productpicture where pic_prodno = prod_no))as pic_url from product inner join designer on prod_designerid=des_id order by prod_regdate asc;")
 	public List<ProductDto> prod_listAll();	//제품 리스트 전체
 	

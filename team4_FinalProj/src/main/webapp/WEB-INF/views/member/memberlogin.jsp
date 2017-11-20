@@ -8,34 +8,101 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<script type="text/javascript">
+	$(document).ready(function(){
+		
+	});
 
+	function submit(){
+		//입력자료 검사 필요
+		
+		if ($(":input:radio[name='logintype']:checked").val() == 'member'){
+			$('form').attr("action", "memberlogin");
+			$('#id').attr("name", "mem_id");
+			$('#password').attr("name", "mem_pwd");
+			$('form').submit();
+		}
+		else if ($(":input:radio[name='logintype']:checked").val() == 'designer'){
+			$('form').attr("action", "designerlogin");
+			$('#id').attr("name", "des_id");
+			$('#password').attr("name", "des_pwd");
+			$('form').submit();
+		}
+		else {
+			alert('디자이너인지 회원인지 선택하세요');
+		}
+	}
+	
+	function createAccount(){
+		if ($(":input:radio[name='logintype']:checked").val() == 'member'){
+			if(confirm('회원가입이 맞습니까?(취소 누를 시 디자이너 가입창으로 이동)')){
+				location.href="memberregister"
+			} else {
+				location.href="designerregister"
+			}		
+		}
+		else if ($(":input:radio[name='logintype']:checked").val() == 'designer'){
+			if(confirm('디자이너 가입이 맞습니까?(취소 누를 시 회원가입창으로 이동)')){
+				location.href="designerregister"
+			} else {
+				location.href="memberregister"
+			}
+		}
+		else {
+			alert('디자이너인지 회원인지 선택하세요');
+		}
+	}
+</script>
 <title>Insert title here</title>
 </head>
 <body>
 
 <div id="top_block">
-<nav>
-	<div class="nav-wrapper">
-		<a href="#" class="brand-logo center">회원 로그인</a>
+	<div class="container">
+		<div class="row">
+			<nav class="col s4 offset-s4">
+				<div class="nav-wrapper">
+					<a href="#" class="brand-logo center">로그인</a>
+				</div>
+			</nav>
+		</div>
+		<div class="row center-align">
+			<form class="col s6 offset-s3 center" action="" method="post">
+				<div style="margin-top: 15px">
+					<div class="col s3 offset-s3">
+						<input class="with-gap" name="logintype" type="radio" id="mem" value="member" checked />
+    					<label for="mem">회원</label>
+    				</div>
+					<div class="col s5">
+						<input class="with-gap" name="logintype" type="radio" id="desi" value="designer" />
+    					<label for="desi">디자이너</label>
+    				</div>
+    			</div>
+				<div class="row">
+					<div class="input-field col s8 offset-s2">
+						<i class="material-icons prefix">account_circle</i>
+						<label for="id">ID</label>
+						<input id="id" type="text" name ="" class="validate">
+					</div>
+					<div class="input-field col s8 offset-s2">
+						<i class="material-icons prefix">vpn_key</i>
+						<label for="password">PASSWORD</label>
+						<input id="password" type="password" name="" class="validate">
+					</div>
+				</div>
+				<div class="row">
+					<a class="col s3 offset-s3 waves-effect waves-light btn" href="javascript:createAccount()">
+						<i class="material-icons left">person_add</i>
+						가입
+					</a>
+					<a class="col s3 offset-s1 waves-effect waves-light btn" href="javascript:submit()">
+						<i class="material-icons left">directions_run</i>
+						로그인
+					</a>
+				</div>
+			</form>
+		</div>
 	</div>
-</nav>
-
-<div class="row center-align">
-<form class="col s12 center" action="memberlogin" method="post">
-
-<div class="input-field col s6 offset-s3">
-<i class="material-icons prefix">account_circle</i>
-<input id="icon_prefix" type="text" name ="mem_id" class="validate">
-</div>
-
-<div class="input-field col s6 offset-s3">
-<i class="material-icons prefix">vpn_key</i>
-<input id="icon_password" type="password" name="mem_pwd" class="validate">
-</div>
-
-<input type="submit" value="로그인">
-</form>
-</div>
 </div>
 </body>
 </html>

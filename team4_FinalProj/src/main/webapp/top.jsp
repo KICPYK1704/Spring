@@ -127,6 +127,7 @@ $(document).ready(function(){
 	      top: $target.offset().top - $this.height(),
 	      bottom: $target.offset().top + $target.outerHeight() - $this.height()
 	    });
+	    $('#top_block').css("margin-top", $this.height());
 	});
 });
 
