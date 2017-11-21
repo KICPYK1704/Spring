@@ -25,7 +25,6 @@ $(document).ready(function() {
 });
 
 function confirm(){
-	alert('aa');
 	frm.action="orderprocess";
 	frm.method="post";
 	frm.submit();
@@ -142,13 +141,14 @@ function newAddr(){
 				<tr>
 					<td style="text-align: center">전화번호</td>
 					<td>
-						<div class="row valign-wrapper" style="height: 100%">
+						<input type="text" name="order_tel" value="${meminfo.mem_tel}">
+						<%-- <div class="row valign-wrapper" style="height: 100%">
 							<input type="text" name="tel1" value="<%=tels[0] %>" readonly="readonly" style="width: 70px; text-align: center; margin-top: 20px">
 							&nbsp;&nbsp;<b>-</b>&nbsp;&nbsp;
 							<input type="text" name="tel2" value="<%=tels[1] %>" readonly="readonly" style="width: 100px; text-align: center; margin-top: 20px">
 							&nbsp;&nbsp;<b>-</b>&nbsp;&nbsp;
 							<input type="text" name="tel3" value="<%=tels[2] %>" readonly="readonly" style="width: 100px; text-align: center; margin-top: 20px">
-						</div>
+						</div> --%>
 					</td>
 				</tr>
 				<tr>

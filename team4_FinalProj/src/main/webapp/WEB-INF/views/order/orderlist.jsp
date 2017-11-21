@@ -67,37 +67,20 @@
 				<div class="divider"></div>
 				<table class="bordered">
 					<tr><th style="text-align: center; width: 90px">주문일자<br>[주문번호]</th><th style="text-align: center; width: 200px">이미지</th><th style="text-align: center; width: 500px">상품정보</th><th style="text-align: center; width: 60px">수량</th><th style="text-align: center; width: 80px">판매가</th><th style="text-align: center; width: 120px">처리상태</th><th style="text-align: center">취소/교환/반품</th></tr>
-<!-- 					<tr>
-						<td height="150" colspan="7" width="100%">
-							<div class=" valign-wrapper" style="text-align: center">
-								<table width="100%" height="100%"> -->
-									<c:if test="${list.size() == 0}">
-	 									<tr><td style="text-align: center"><b>주문 내역이 없습니다.</b></td></tr>									
-									</c:if>
-									<c:forEach var="o" items="${list}">
-										<tr>
-											<%-- <td style="width: 40px">${o.order_regdate}<br>${o.order_no }</td>
-											<td style="width: 100px"><img src="resources/img/${o.pic_url}"></td>
-											<td style="width: 300px">${o.prod_name }<br>[${o.stock_color} / ${o.stock_size}]</td>
-											<td style="width: 40px">${o.order_quantity}</td>
-											<td style="width: 50px">${o.order_pay}</td>
-											<td style="width: 60px">${o.order_state}</td>
-											<td><a href="ordercancel">취소</a>&nbsp;<a href="orderchange">교환</a>&nbsp;<a href="orderreturn">반품</a></td> --%>
-											
-											<td style="text-align: center">${o.order_regdate}<br>${o.order_no }</td>
-											<td><img src="resources/img/${o.pic_url}"></td>
-											<td>${o.prod_name }<br>[${o.stock_color} / ${o.stock_size}]</td>
-											<td style="text-align: center">${o.order_quantity}</td>
-											<td style="text-align: center">${o.order_pay}</td>
-											<td style="text-align: center">${o.order_state}</td>
-											<td style="text-align: center"><a href="ordercancel">취소</a>&nbsp;/&nbsp;<a href="orderchange">교환</a>&nbsp;/&nbsp;<a href="orderreturn">반품</a></td>
-										</tr>
-									</c:forEach>									
-<!-- 								</table>
-								
-							</div>
-						</td>
-					</tr> -->
+					<c:if test="${list.size() == 0}">
+							<tr><td style="text-align: center"><b>주문 내역이 없습니다.</b></td></tr>									
+					</c:if>
+					<c:forEach var="o" items="${list}">
+						<tr>											
+							<td style="text-align: center">${o.order_regdate}<br>${o.order_no }</td>
+							<td><img src="resources/img/${o.pic_url}"></td>
+							<td>${o.prod_name }<br>[${o.stock_color} / ${o.stock_size}]</td>
+							<td style="text-align: center">${o.order_quantity}</td>
+							<td style="text-align: center">${o.order_pay}</td>
+							<td style="text-align: center">${o.order_state}</td>
+							<td style="text-align: center"><a href="ordercancel">취소</a>&nbsp;/&nbsp;<a href="orderchange">교환</a>&nbsp;/&nbsp;<a href="orderreturn">반품</a></td>
+						</tr>
+					</c:forEach>									
 				</table>
 				
 				<div style="text-align: center">

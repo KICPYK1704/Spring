@@ -27,18 +27,14 @@ public class OrderProcessController {
 		ModelAndView view = new ModelAndView("order/orderprocess");
 		
 		// 상품 상세에서 바로 결제하기 눌렀을 때
-		//String flag = request.getParameter("flag");
-		String flag = "directbuy";
-		//String stock_no = request.getParameter("stock_no");
-		String stock_no = "3";
-		//String q = request.getParameter("quantity");
+		String flag = request.getParameter("flag");
+		String stock_no = request.getParameter("stock_no");
+		String q = request.getParameter("quantity");
 		
-		// 장바구니에서 결제하기 눌렀을 때 (List<ProductBean>으로 넘어옴)
-		// String flag = "cartbuy";
-		//List<ProductBean> list = request.getAttribute("list");
+		// 장바구니에서 결제하기 눌렀을 때 (session의 아이디 값으로 장바구니 정보 불러옴)
 
 		request.setAttribute("flag", flag);
-		session.setAttribute("login_mem", "suik");
+		//session.setAttribute("login_mem", "suik");
 		
 		// 주문할 내역 리스트
 		PreOrderDto dto = new PreOrderDto();
