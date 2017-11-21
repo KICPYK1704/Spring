@@ -307,7 +307,7 @@ function detailHide(elementid){
 <!-- 타이틀 바 -->
 <nav id="top_nav" class="pushpin-demo-nav" data-target="top_block">
   <div class="nav-wrapper">
-    <a href="#" class="brand-logo center black-text">Logo</a>
+    <a href="/finalproj/index.jsp" class="brand-logo center black-text">Who You Wear</a>
     <ul id="nav1" class="left hide-on-med-and-down">
       <li><a class="button-collapse black-text" href="#!" data-activates="slide-out"><i class="material-icons" style="font-size: 2rem">menu</i></a></li>
       <li><a class="dropdown-button black-text" href="#!" data-activates="dropdown1">쇼핑 스트리트<i class="material-icons right">arrow_drop_down</i></a></li>

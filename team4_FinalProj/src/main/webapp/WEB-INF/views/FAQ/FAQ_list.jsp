@@ -27,7 +27,7 @@
 			    	회원가입은 어떻게 하나요?
 			    </div>
 			    <div class="collapsible-body">
-			    	<span>Lorem ipsum dolor sit amet.</span>
+			    	<span>상단 왼편 메뉴버튼(<i class="material-icons small">menu</i>)을 누르시면 로그인버튼이 있습니다. 로그인 창에서 회원가입을 찾을 수 있습니다.</span>
 			    </div>
 		    </li>
 		    <li>
@@ -36,16 +36,16 @@
 			    	디자이너와 팬맺기는 어떻게 하나요?
 			    </div>
 			    <div class="collapsible-body">
-			    	<span>Lorem ipsum dolor sit amet.</span>
+			    	<span>우선 로그인이 필요합니다. 로그인 후 쇼핑 스트리트나 해당 디자이너 숍에서 팬맺기 버튼(<i class="material-icons small">favorite</i>)을 확인하실 수 있습니다. 팬을 맺기전에는 하트가 흰색입니다.</span>
 			    </div>
 		    </li>
 		    <li>
 			    <div class="collapsible-header">
 			    	<i class="material-icons">zoom_in</i>
-			    	회원탈퇴는 어케하나요?
+			    	회원탈퇴는 어떻게 하나요?
 			    </div>
 			    <div class="collapsible-body">
-			    	<span>Lorem ipsum dolor sit amet.</span>
+			    	<span>마이페이지 정보수정창에서 가능합니다.</span>
 			    </div>
 		    </li>
 		</ul>

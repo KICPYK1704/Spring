@@ -40,26 +40,26 @@ window.onload = function(){
       <input id="icon_prefix" type="text" name ="mem_id"
        placeholder="아이디는 첫글자 영문으로. 영문, 숫자 조합 4~11글자만 가능합니다." class="validate">
   <!--    <input type="button" value="ID중복확인" id="btnIdCheck">   --> 
-     
+      <label for="icon_name">ID</label>
     </div>
     
     <div class="input-field col s6 offset-s3">
       <i class="material-icons prefix">vpn_key</i>
       <input id="icon_password" type="password" name="mem_pwd" 
       placeholder="비밀번호는 첫글자 영문으로. 영문, 숫자 조합 4~11글자만 가능합니다." class="validate">
-    
+      <label for="icon_name">비밀번호</label>
     </div>
     
     <div class="input-field col s6 offset-s3">
       <i class="material-icons prefix">face</i>
       <input id="icon_name" type="text" name="mem_name" class="validate">
-      <label for="icon_name">name</label>
+      <label for="icon_name">이름</label>
     </div>
     
     <div class="input-field col s6 offset-s3">
       <i class="material-icons prefix">contact_phone</i>
       <input id="icon_telephone" type="text" name="mem_tel" class="validate">
-      <label for="icon_telephone">tel</label>
+      <label for="icon_telephone">전화</label>
     </div>
     
     <div class="input-field col s6 offset-s3">
@@ -71,7 +71,7 @@ window.onload = function(){
     <div class="input-field col s6 offset-s3">
       <i class="material-icons prefix">location_city</i>
       <input id="icon_address" type="text" name="mem_address" class="validate">
-      <label for="icon_address">address</label>
+      <label for="icon_address">주소</label>
     </div>
     <div class="input-field col s6 offset-s3">
 	    <input class="waves-effect waves-light btn" type="submit" value="회원가입" id="btnRegister">

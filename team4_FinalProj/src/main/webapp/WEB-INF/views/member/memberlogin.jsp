@@ -8,6 +8,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script
+  src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"
+  integrity="sha256-0YPKAwZP7Mp3ALMRVB2i8GXeEndvCq3eSl/WsAl1Ryk="
+  crossorigin="anonymous"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
 		
@@ -33,7 +38,26 @@
 		}
 	}
 	
+	
 	function createAccount(){
+		$( "#dialog-confirm" ).dialog({
+			resizable: true,
+		    height: "auto",
+		    width: "auto",
+		    modal: true,
+		    buttons: {
+		    	"일반회원": function() {
+					$( this ).dialog( "close" );
+					location.href="memberregister"
+		        },
+		        "디자이너": function() {
+					$( this ).dialog( "close" );
+					location.href="designerregister"
+				}
+			}
+		});	
+	}
+	function aa(){
 		if ($(":input:radio[name='logintype']:checked").val() == 'member'){
 			if(confirm('회원가입이 맞습니까?(취소 누를 시 디자이너 가입창으로 이동)')){
 				location.href="memberregister"
@@ -103,6 +127,12 @@
 			</form>
 		</div>
 	</div>
+</div>
+<div id="dialog-confirm" title="가입유형 선택" style="display:none;">
+ 	<p>
+ 		<i class="material-icons left">person_add</i>
+ 		회원가입 유형을 선택하세요.
+ 	</p>
 </div>
 </body>
 </html>
