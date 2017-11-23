@@ -214,25 +214,25 @@ function detailHide(elementid){
     	
     	<c:when test="${not empty sessionScope.login_mem}">
    			<li>
-	    		<a>${sessionScope.login_mem}</a>
+	    		<a>${sessionScope.login_mem}님 환영합니다.</a>
 	    	</li>
 		    <li>
-			    <a class="btn" href="membermypage">my page</a>
+			    <a class="btn" href="myintro">my page</a>
 			    <a class="btn" href="logout">로그아웃</a>
 		    </li>
     	</c:when>
     	<c:when test="${not empty sessionScope.login_des}">
 	    	<li>
-	    		<a>${sessionScope.login_des}</a>
+	    		<a>${sessionScope.login_des}님 환영합니다.</a>
 	    	</li>
 		    <li>
-			    <a class="btn" href="designermypage">my page</a>
+			    <a class="btn" href="myintro">my page</a>
 			    <a class="btn" href="logout">로그아웃</a>
 		    </li>
     	</c:when>
     	<c:when test="${not empty sessionScope.login_adm}">
 	    	<li>
-	    		<a>${sessionScope.login_adm}</a>
+	    		<a>${sessionScope.login_adm}님 환영합니다.</a>
 	    	</li>
 		    <li>
 			    <a class="btn" href="c">my page</a>
@@ -241,9 +241,7 @@ function detailHide(elementid){
     	</c:when>
     	<c:otherwise>
 		    <li>
-		    	<a class="btn" href="memberlogin">회원 로그인</a>
-			    <a class="btn" href="designerlogin">디자이너 로그인</a>
-			    <a class="btn" href="adminlogin">관리자 로그인</a>
+		    	<a class="btn" href="memberlogin">로그인</a>
 		    </li>
     	</c:otherwise>
     </c:choose>

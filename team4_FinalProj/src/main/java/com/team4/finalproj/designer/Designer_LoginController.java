@@ -30,7 +30,7 @@ public class Designer_LoginController {
 	
 		if(b){
 			session.setAttribute("login_des", bean.getDes_id());
-			return "congratulation";			
+			return "redirect:/index.jsp";			
 		}else{
 			return "redirect:/loginerror.jsp";
 		}

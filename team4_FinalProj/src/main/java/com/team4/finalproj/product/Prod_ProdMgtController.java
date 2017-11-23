@@ -17,8 +17,8 @@ public class Prod_ProdMgtController {
 	
 	@RequestMapping(value="product_Mgt", method=RequestMethod.GET)
 	public ModelAndView prod_Mgt(HttpServletRequest request){
-		//String des_id = (String)request.getSession().getAttribute("login_des");
-		String des_id = "jinho"; //임시사용
+		String des_id = (String)request.getSession().getAttribute("login_des");
+//		String des_id = "jinho"; //임시사용
 		
 		ModelAndView mv = new ModelAndView("product/product_Mgt");
 		mv.addObject("des_id", des_id);

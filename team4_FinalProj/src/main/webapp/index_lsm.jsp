@@ -13,6 +13,6 @@
 	<a href="product_Mgt">상품관리</a>
 	<a href="designermypage">회원등록</a>
 	<a href="membermypage">회원등록</a>
-	
+	<a class="btn" href="adminlogin">관리자 로그인</a>
 		</body>
 </html>

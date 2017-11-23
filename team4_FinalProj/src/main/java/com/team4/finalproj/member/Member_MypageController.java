@@ -18,12 +18,9 @@ public class Member_MypageController {
 	@Autowired
 	private MemberDaoInter memberDaoInter;
 	
-	@RequestMapping(value="membermypage", method=RequestMethod.GET)
 	//아이디받고  나머지자료들도 찾아서 마이페이지폼으로들고가야지여기서
-	
+	@RequestMapping(value="membermypage", method=RequestMethod.GET)
 	public ModelAndView	my(HttpSession session){
-		
-		
 		MemberDto dto = memberDaoInter.getMemberDataAll((String)session.getAttribute("login_mem"));
 		
 		if(dto != null){
@@ -32,8 +29,6 @@ public class Member_MypageController {
 			return new ModelAndView("redirect:error.jsp");
 		}
 	}
-		
-	
 	
 	@RequestMapping(value="membermypage", method=RequestMethod.POST)
 	public String submit(MemberBean bean){
@@ -47,4 +42,8 @@ public class Member_MypageController {
 		}
 	}
 	
+	@RequestMapping(value="myintro", method=RequestMethod.GET)
+	public ModelAndView	membermy_intro(){
+		return new ModelAndView("member/myintro");
+	}
 }

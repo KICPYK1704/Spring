@@ -12,6 +12,11 @@ public class DesignerDao implements DesignerDaoInter {
 	@Autowired
 	private DesignerAnnoInter annoInter;
 	
+	@Override
+	public DesignerDto getDesigner(String des_id) {
+		return annoInter.getDesigner(des_id);
+	}
+	
 	public boolean insertDesigner(DesignerBean bean) {
 		boolean b= false;
 		System.out.println(bean.getDes_name());

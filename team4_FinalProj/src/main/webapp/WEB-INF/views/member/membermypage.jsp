@@ -14,58 +14,55 @@
 
 </head>
 <body>
+<%@include file="../../../top.jsp"%>
 <div id="top_block">
-<nav>
-	<div class="nav-wrapper">
-		<a href="#" class="brand-logo center">회원 마이페이지</a>
+	<div class="container">
+		<div class="row">
+			<nav class="col s8 offset-s2">
+				<div class="nav-wrapper">
+					<a href="#" class="brand-logo center">내 정보 수정</a>
+				</div>
+			</nav>
+		</div>
+		<div class="row center-align">
+			<form class="col s12 center" action="memberregister" name="memberregister" method="post">
+			    <div class="input-field col s6 offset-s3">
+			      <i class="material-icons prefix">account_circle</i>
+			      <input id="icon_prefix" type="text" name ="mem_id" value="${dto.mem_id}" placeholder="아이디는 첫글자 영문으로. 영문, 숫자 조합 4~11글자만 가능합니다." class="validate">
+			      <label for="icon_name">ID</label>
+			    </div>
+			    <div class="input-field col s6 offset-s3">
+			      <i class="material-icons prefix">vpn_key</i>
+			      <input id="icon_password" type="password" name="mem_pwd" value="${dto.mem_pwd}" placeholder="비밀번호는 첫글자 영문으로. 영문, 숫자 조합 4~11글자만 가능합니다." class="validate">
+			      <label for="icon_name">비밀번호</label>
+			    </div>
+			    <div class="input-field col s6 offset-s3">
+			      <i class="material-icons prefix">face</i>
+			      <input id="icon_name" type="text" name="mem_name" value="${dto.mem_name}" class="validate">
+			      <label for="icon_name">이름</label>
+			    </div>
+			    <div class="input-field col s6 offset-s3">
+			      <i class="material-icons prefix">contact_phone</i>
+			      <input id="icon_telephone" type="text" name="mem_tel" value="${dto.mem_tel}" class="validate">
+			      <label for="icon_telephone">전화</label>
+			    </div>
+			    <div class="input-field col s6 offset-s3">
+			      <i class="material-icons prefix">mail_outline</i>
+			      <input id="icon_email" type="text" name="mem_email" value="${dto.mem_email}" class="validate">
+			      <label for="icon_email">email</label>
+			    </div>
+			    <div class="input-field col s6 offset-s3">
+			      <i class="material-icons prefix">location_city</i>
+			      <input id="icon_address" type="text" name="mem_address" value="${dto.mem_address}" class="validate">
+			      <label for="icon_address">주소</label>
+			    </div>
+			    <div class="input-field col s6 offset-s3">
+				    <input class="col s3 offset-s2 waves-effect waves-light btn" type="submit" value="수정 요청" id="btnRegister">
+				    <input class="col s3 offset-s2 waves-effect waves-light btn" type="reset" value="초기화">
+				</div>
+			</form> 
+		</div>
 	</div>
-</nav>
-<div class="row center-align">
-<form class="col s12 center" action="membermypage" method="post">
-
-<div class="input-field col s6 offset-s3">
-<i class="material-icons prefix">account_circle</i>
-<input id="icon_prefix" type="text" name="mem_id" readonly="readonly" value="${dto.mem_id}" class="validate">
-</div>
-
-<div class="input-field col s6 offset-s3">
-<i class="material-icons prefix">vpn_key</i>
-<input id="icon_password" type="text" name="mem_pwd" value="${dto.mem_pwd}" class="validate">
-</div>
-
-<div class="input-field col s6 offset-s3">
-<i class="material-icons prefix">face</i>
-<input id="icon_name" type="text" name="mem_name" value="${dto.mem_name}" class="validate">
-<label for="icon_name">name</label>
-</div>
-
-<div class="input-field col s6 offset-s3">
-<i class="material-icons prefix">contact_phone</i>
-<input id="icon_telephone" type="text" name="mem_tel" value="${dto.mem_tel}" class="validate">
-<label for="icon_tel">tel</label>
-</div>
-
-<div class="input-field col s6 offset-s3">
-<i class="material-icons prefix">mail_outline</i>
-<input id="icon_email" type="text" name="mem_email" value="${dto.mem_email}" class="validate">
-<label for="icon_email">email</label>
-</div>
-
-<div class="input-field col s6 offset-s3">
-<i class="material-icons prefix">location_city</i>
-<input id="icon_address" type="text" name="mem_address" value="${dto.mem_address}" class="validate">
-<label for="icon_address">address</label>
-</div>
-
-<input type="submit" value="수정하기"><br><br><br>
-</form>
-
-<!--  
-탈퇴시 일주일 간 재가입을 할 수 없으며 작성하신 글과 주문/결제 내역 등 모든 정보가 
-삭제 됩니다. 탈퇴를 원하시면 아래 '탈퇴하기'버튼을 눌러주세요.
-<br>
-<a href="deleteMember?mem_id=${dto.mem_id}">탈퇴하기</a>
--->
 </div>
 </body>
 </html>

@@ -31,7 +31,7 @@ public class Member_LoginController {
 			//session으로 id값 저장해주기 ..환영페이지로 아이디값들고가게 저장
 			session.setAttribute("login_mem", bean.getMem_id());
 
-			return "congratulation";			
+			return "redirect:/index.jsp";			
 		}else{
 			return "redirect:/loginerror.jsp";
 		}

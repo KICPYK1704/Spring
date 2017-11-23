@@ -98,7 +98,7 @@
 </style>
 </head>
 <body>
-
+<%@include file="../../../top.jsp"%>
 <div id="top_block">
 <sform:form id="insertform" enctype="multipart/form-data" modelAttribute="productBean">
 <div class="container">
@@ -121,14 +121,13 @@
 			
 	<div class="col s6 left-align flow-text">
 		<b>샵 이름: </b>
-		<b>홍길동 샵</b>
+		<b>${des_info.des_shoptitle}</b>
 	</div>
 	<div class="col s6 right-align flow-text">
 		<b>디자이너 이름: </b>
-		<b>홍길동</b>
+		<b>${des_info.des_name}</b>
 	</div>
-	<input type="hidden" name="prod_designerno" value="jinho">
-	<!-- value="${sessionScope.login_des}"로 변경필요 -->
+	<input type="hidden" name="prod_designerid" value="${sessionScope.login_des}">
 	
 	<!-- 여백 -->
 	<div class="col s12 free-container3"></div>

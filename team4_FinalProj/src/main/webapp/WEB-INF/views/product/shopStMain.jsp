@@ -9,7 +9,21 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
+<style type="text/css">
+.checkbox-wrap { cursor: pointer; }
+.checkbox-wrap .check-icon  { display: inline-block; width: 33px; height: 33px; background: url("./resources/img/heart_b.png") left center no-repeat; vertical-align: middle; transition-duration: .3s; }
+.checkbox-wrap input[type=checkbox] { display: none; }
+.checkbox-wrap input[type=checkbox]:checked + .check-icon { background-image: url("./resources/img/heart_r.png"); }
+</style>
+<script type="text/javascript">
+$("#checkBoxId").change(function(){
+    if($("#checkBoxId").is(":checked")){
+        alert("체크박스 체크 했음!");
+    }else{
+        alert("체크박스 체크 해제!");
+    }
+});
+</script>
 <title>Shopping Street Main</title>
 </head>
 <body>
@@ -62,7 +76,11 @@
 					</div>
 					<div class="col s1">
 						<div class="valign-wrapper" style="height:100px">
-							<i class="material-icons flow-text small">favorite</i>
+							<form>
+								<label class="checkbox-wrap">
+									<input type="checkbox" name="des_id" value="${dto.des_id}"><i class="check-icon"></i>
+								</label>
+							</form>
 						</div>
 						<div class="valign-wrapper" style="height:100px">
 							<a href="shop_main?des_id=${dto.des_id}">

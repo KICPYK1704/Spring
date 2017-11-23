@@ -9,12 +9,6 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <meta content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript">
-//$(document).ready(function(){
-	//$('.carousel.carousel-slider').carousel({fullWidth: true}); 
-//});
-
-</script>
 <style type="text/css">
 .img1{
     position: relative;
@@ -48,6 +42,13 @@
 </style>
 <script type="text/javascript">
 	$(document).ready(function(){
+		$('.modal').modal({complete: 
+			function() {
+				sessionStorage.setItem("modal", "opened");
+				alert('${sessionScope.modal}');
+			}
+		});
+		$('#modal1').modal('open');
 		$('#img1_text').hide()
 		$('#img2_text').hide()
 		$('.img1').hover(
@@ -103,5 +104,25 @@
 			</div>
 		</div>
 	</div>
+	<c:if test="${not empty sessionScope.modal}">
+	<div id="modal1" class="modal">
+		<div class="modal-content">
+			<h4><i class="material-icons">sentiment_very_satisfied</i> 환영합니다</h4>
+			<p>
+				본 웹사이트는 KIC캠퍼스 "클라우드 기반의 빅데이터 분석 및 자바딥러닝 개발자 양성과정"에서 수업과 병행한 프로젝트로<br>
+				<b>현재 유지보수중에 있습니다.</b>
+			</p>
+			<p>
+				일부 기능이 동작하지 않더라도 너른 마음으로 양해해주시길 부탁드립니다.
+			</p>
+			<p>
+				(본 알림창이 닫히면 30분동안 보이지 않습니다.)
+			</p>
+		</div>
+		<div class="modal-footer">
+			<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">확인</a>
+		</div>
+	</div>
+	</c:if>
 </body>
 </html>

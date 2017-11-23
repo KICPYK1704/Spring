@@ -11,4 +11,6 @@ public interface DesignerDaoInter {
 	DesignerDto getDesignerDataAll(String des_id);
 	
 	boolean updateDesigner(DesignerBean bean);
+	
+	DesignerDto getDesigner(String des_id);
 }

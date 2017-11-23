@@ -29,7 +29,7 @@ public class Designer_RegisterController {
 		boolean b = designerDaoInter.insertDesigner(bean);		
 	
 		if(b){
-			return "congratulation";			
+			return "redirect:/memberlogin";			
 		}else{
 			return "redirect:/error.jsp";
 		}

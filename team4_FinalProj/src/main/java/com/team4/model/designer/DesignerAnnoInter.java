@@ -11,9 +11,11 @@ public interface DesignerAnnoInter {
 			+ "#{des_shoptitle}, null, null,now())")
 	int insertdesigner(DesignerBean bean);
 	
-	
 	@Select("select des_id, des_pwd from designer where des_id=#{des_id}")
 	DesignerDto loginDesigner(DesignerBean bean);
+	
+	@Select("select * from designer where des_id=#{des_id}")
+	DesignerDto getDesigner(String des_id);
 
 	@Select("select des_id, des_pwd, des_name, des_tel, des_email, des_account, des_shoptitle, des_shopintro, des_style from designer where des_id=#{des_id}")
 	DesignerDto getDesignerDataAll(String des_id);

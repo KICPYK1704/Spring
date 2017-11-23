@@ -23,7 +23,7 @@ public class Member_RegisterController {
 		boolean b = memberDaoInter.insertData(bean);		
 	
 		if(b){
-			return "congratulation";			
+			return "redirect:/memberlogin";			
 		}else{
 			return "redirect:/error.jsp";
 		}

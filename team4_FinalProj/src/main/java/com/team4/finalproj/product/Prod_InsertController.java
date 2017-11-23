@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.team4.model.designer.DesignerDaoInter;
+import com.team4.model.designer.DesignerDto;
 import com.team4.model.product.PFileValidator;
 import com.team4.model.product.ProductDaoInter;
 
@@ -26,12 +28,20 @@ public class Prod_InsertController {
 	private ProductDaoInter daoInter;
 	
 	@Autowired
+	private DesignerDaoInter des_daoInter;
+	
+	@Autowired
 	private PFileValidator fileValidator;
 	
 	@RequestMapping(value="product_insert", method=RequestMethod.GET)
-	public ModelAndView product_insertpage(@ModelAttribute("ProductBean")ProductBean productBean){
-		String prod_no = daoInter.getNewNo(); 
-		return new ModelAndView("product/product_insert", "prod_no", prod_no);
+	public ModelAndView product_insertpage(HttpServletRequest request, @ModelAttribute("ProductBean")ProductBean productBean){
+		String prod_no = daoInter.getNewNo();
+		DesignerDto des_info = des_daoInter.getDesigner((String)request.getSession().getAttribute("login_des"));
+		
+		ModelAndView mv = new ModelAndView("product/product_insert");
+		mv.addObject("prod_no", prod_no);
+		mv.addObject("des_info", des_info);
+		return mv;
 	}
 	
 	@RequestMapping(value="product_insert", method=RequestMethod.POST)
@@ -78,7 +88,7 @@ public class Prod_InsertController {
 				}
 				
 				ProductPictureBean productPictureBean = new ProductPictureBean();
-				System.out.println(fileName + " prod_no:" + productBean.getProd_no());
+//				System.out.println(fileName + " prod_no:" + productBean.getProd_no());
 				productPictureBean.setPic_url(fileName);
 				productPictureBean.setPic_prodno(productBean.getProd_no());
 				daoInter.insertProductPic(productPictureBean);
@@ -94,6 +104,6 @@ public class Prod_InsertController {
 			}
 		}
 		
-		return new ModelAndView("redirect:/index.jsp");
+		return new ModelAndView("redirect:/product_Mgt");
 	}
 }
