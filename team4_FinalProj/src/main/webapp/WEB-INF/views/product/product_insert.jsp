@@ -292,9 +292,6 @@
 				재고 등록은 상품관리 창에서 가능합니다.
 			</div>
 			
-			<!-- 여백 -->
-			<div class="col s12 free-container8"></div>
-			
 			<!-- 버튼 -->
 			<div class="input-field col s4">
 				<a href="product_Mgt" class="btn waves-effect waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="상품관리로">

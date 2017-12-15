@@ -134,5 +134,6 @@
  		회원가입 유형을 선택하세요.
  	</p>
 </div>
+<script type="text/javascript" src="/finalproj/resources/js/channel.js"></script>
 </body>
 </html>

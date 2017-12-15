@@ -147,5 +147,6 @@ transition: opacity .45s cubic-bezier(.25,.46,.45,.94),margin-top .45s cubic-bez
 	</div>
 </div>
 </div>
+<script type="text/javascript" src="/finalproj/resources/js/channel.js"></script>
 </body>
 </html>

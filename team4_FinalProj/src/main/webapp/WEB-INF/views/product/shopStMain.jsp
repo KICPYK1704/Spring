@@ -27,7 +27,7 @@ $("#checkBoxId").change(function(){
 <title>Shopping Street Main</title>
 </head>
 <body>
-	<%@include file="../../../top.jsp"%>
+	<%@include file="/top.jsp"%>
 	<div id="top_block">
 	<div class="container" style="height: 700px">
 	<div class="fixed-action-btn click-to-toggle">
@@ -94,5 +94,6 @@ $("#checkBoxId").change(function(){
 		<!-- ---------------------------------------------------------------------------------------------------------- -->
 	</div>
 </div>
+<script type="text/javascript" src="/finalproj/resources/js/channel.js"></script>
 </body>
 </html>

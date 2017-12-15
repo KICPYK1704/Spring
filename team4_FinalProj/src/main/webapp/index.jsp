@@ -45,7 +45,6 @@
 		$('.modal').modal({complete: 
 			function() {
 				sessionStorage.setItem("modal", "opened");
-				alert('${sessionScope.modal}');
 			}
 		});
 		$('#modal1').modal('open');

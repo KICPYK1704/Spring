@@ -99,5 +99,6 @@
 		</div>
 	</div>
 </div>
+<script type="text/javascript" src="/finalproj/resources/js/channel.js"></script>
 </body>
 </html>

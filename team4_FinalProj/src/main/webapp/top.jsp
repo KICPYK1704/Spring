@@ -129,6 +129,51 @@ $(document).ready(function(){
 	    });
 	    $('#top_block').css("margin-top", $this.height());
 	});
+
+	$('#check1').click(function(){
+		 if($('#check1').prop("checked")){
+					$('.ck').prop("checked", false)
+		}else{
+				$('#check2').prop("checked", true)
+		}
+	 });
+	
+	$('#check2').click(function(){
+		if($('#check2').prop("checked")){
+				$('#check1').prop("checked", false);
+		}
+	 });
+	$('#check3').click(function(){
+		if($('#check3').prop("checked")){
+				$('#check1').prop("checked", false);
+		}
+	 });
+	$('#check4').click(function(){
+		if($('#check4').prop("checked")){
+				$('#check1').prop("checked", false);
+		}
+	 });
+	$('#check5').click(function(){
+		if($('#check5').prop("checked")){
+				$('#check1').prop("checked", false);
+		}
+	 });
+	$('#check6').click(function(){
+		if($('#check6').prop("checked")){
+				$('#check1').prop("checked", false);
+		}
+	 });
+	$('.ck').click(function(){
+		if($('#check2').prop("checked")
+				&&$('#check3').prop("checked")
+				&&$('#check4').prop("checked")
+				&&$('#check5').prop("checked")
+				&&$('#check6').prop("checked")
+				){
+				$('#check1').prop("checked", true);
+					$('.ck').prop("checked", false)
+		}
+	 });
 });
 
 	
@@ -279,23 +324,23 @@ function detailHide(elementid){
  			     <label for="test4"><i>free</i></label>
  			     <p/>
    			   <span class="au_bar_s_f"></span>
- 			     <input type="checkbox" class="filled-in" id="check1" checked="checked" />
+ 			     <input type="checkbox" class="filled-in" id="check1" checked="checked"/>
      			 <label for="check1">전체</label>
    			   <span class="au_bar_c"></span>
- 			     <input type="checkbox" class="filled-in" id="check2"/>
+ 			     <input type="checkbox" class="filled-in ck" id="check2"/>
      			 <label for="check2">상의</label>
    			   <span class="au_bar_c"></span>
- 			     <input type="checkbox" class="filled-in" id="check3"/>
+ 			     <input type="checkbox" class="filled-in ck" id="check3"/>
      			 <label for="check3">하의</label>
    			   <span class="au_bar_c"></span>
- 			     <input type="checkbox" class="filled-in" id="check4"/>
+ 			     <input type="checkbox" class="filled-in ck" id="check4"/>
      			 <label for="check4">신발</label>
  			     <p/>
    			   <span class="au_bar_s_f2"></span>
- 			     <input type="checkbox" class="filled-in" id="check5"/>
+ 			     <input type="checkbox" class="filled-in ck" id="check5"/>
      			 <label for="check5">잡화</label>
    			   <span class="au_bar_c"></span>
- 			     <input type="checkbox" class="filled-in" id="check6"/>
+ 			     <input type="checkbox" class="filled-in ck" id="check6"/>
      			 <label for="check6">악세서리</label>
 			</div>
 			</div>
